@@ -1,0 +1,2685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Outsmart Reality — Interactive Frequency Tracker based on Nero Knowledge's book. Master your vibration, reprogram your subconscious, and shift into your desired reality.">
+<meta name="theme-color" content="#070810">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Outsmart Reality">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<!-- Open Graph / Social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Outsmart Reality — Frequency Tracker">
+<meta property="og:description" content="The complete interactive guide to mastering your frequency based on Nero Knowledge's book.">
+<meta property="og:image" content="https://via.placeholder.com/1200x630/070810/c9a84c?text=Outsmart+Reality">
+<title>Outsmart Reality — Frequency Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ====================================================
+   BASE RESET & VARIABLES
+==================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070810;
+  --surface:#0e1020;
+  --surface2:#141630;
+  --border:rgba(130,110,230,0.18);
+  --gold:#c9a84c;
+  --gold-light:#e8c97a;
+  --gold-dim:rgba(201,168,76,0.12);
+  --violet:#8878f0;
+  --violet-dim:rgba(136,120,240,0.25);
+  --teal:#4ecdc4;
+  --rose:#f7aef8;
+  --text:#ede8f8;
+  --text-dim:#9490b8;
+  --text-muted:#484468;
+  --radius:18px;
+  --fs-body:1.05rem;
+  --fs-sm:0.92rem;
+  --fs-xs:0.8rem;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  font-size:var(--fs-body);
+  line-height:1.75;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ====================================================
+   STARFIELD
+==================================================== */
+#starfield{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.star{position:absolute;border-radius:50%;background:#fff;animation:twinkle var(--d,3s) ease-in-out infinite;opacity:0}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(0.5)}50%{opacity:var(--o,.6);transform:scale(1)}}
+
+/* ====================================================
+   NAVIGATION
+==================================================== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 36px;
+  background:rgba(7,8,16,0.9);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:600;
+  letter-spacing:0.08em;color:var(--gold);
+  white-space:nowrap;text-decoration:none;
+}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap;list-style:none}
+.nav-links li a{
+  color:var(--text-dim);text-decoration:none;
+  font-size:var(--fs-xs);font-weight:400;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:7px 13px;border-radius:8px;transition:all .25s;
+}
+.nav-links li a:hover{color:var(--gold);background:var(--gold-dim)}
+/* hamburger */
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.nav-ham span{width:24px;height:2px;background:var(--text-dim);border-radius:2px;transition:.3s}
+.mobile-menu{
+  display:none;position:fixed;top:60px;left:0;right:0;z-index:199;
+  background:rgba(7,8,16,0.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);padding:20px 24px;
+  flex-direction:column;gap:4px;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  color:var(--text-dim);text-decoration:none;
+  font-size:1rem;padding:12px 16px;
+  border-radius:10px;transition:all .2s;
+  letter-spacing:0.05em;
+}
+.mobile-menu a:hover{color:var(--gold);background:var(--gold-dim)}
+
+/* ====================================================
+   HERO
+==================================================== */
+#hero{
+  position:relative;z-index:1;
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:130px 24px 80px;
+}
+.hero-eyebrow{
+  font-size:var(--fs-xs);letter-spacing:0.35em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:20px;
+  opacity:0;animation:fadeUp .8s .3s ease forwards;
+}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.2rem,9vw,7.5rem);
+  font-weight:300;line-height:1.05;
+  color:var(--text);margin-bottom:12px;
+  opacity:0;animation:fadeUp .8s .5s ease forwards;
+}
+.hero-title em{font-style:italic;color:var(--gold-light)}
+.hero-subtitle{
+  font-size:clamp(1rem,2.2vw,1.25rem);
+  color:var(--text-dim);max-width:580px;
+  margin:20px auto 44px;font-weight:300;
+  opacity:0;animation:fadeUp .8s .7s ease forwards;
+}
+.hero-ctas{
+  display:flex;gap:16px;flex-wrap:wrap;
+  justify-content:center;
+  opacity:0;animation:fadeUp .8s .9s ease forwards;
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),#a07828);
+  color:#070810;border:none;
+  padding:15px 34px;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-weight:500;
+  font-size:var(--fs-sm);letter-spacing:.1em;
+  text-transform:uppercase;cursor:pointer;
+  text-decoration:none;transition:all .3s;display:inline-block;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 35px rgba(201,168,76,.45)}
+.btn-ghost{
+  background:transparent;color:var(--text);
+  border:1px solid var(--border);
+  padding:15px 34px;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-weight:400;
+  font-size:var(--fs-sm);letter-spacing:.1em;
+  text-transform:uppercase;cursor:pointer;
+  text-decoration:none;transition:all .3s;display:inline-block;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+
+/* Orbit */
+.orbit-wrap{
+  position:relative;width:min(340px,78vw);height:min(340px,78vw);
+  margin:50px auto 0;
+  opacity:0;animation:fadeUp 1s 1.1s ease forwards;
+}
+.orbit-center{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:76px;height:76px;border-radius:50%;
+  background:radial-gradient(circle,#c9a84c 0%,#6040c0 60%,transparent 80%);
+  box-shadow:0 0 60px rgba(201,168,76,.5),0 0 120px rgba(123,104,238,.3);
+  animation:pulse 3s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{box-shadow:0 0 60px rgba(201,168,76,.5),0 0 120px rgba(123,104,238,.3)}50%{box-shadow:0 0 100px rgba(201,168,76,.8),0 0 200px rgba(123,104,238,.5)}}
+.orbit-ring{
+  position:absolute;top:50%;left:50%;
+  border-radius:50%;border:1px solid;
+  transform:translate(-50%,-50%);
+  animation:spin linear infinite;
+}
+.orbit-ring:nth-child(1){width:126px;height:126px;border-color:rgba(201,168,76,.3);animation-duration:8s}
+.orbit-ring:nth-child(2){width:204px;height:204px;border-color:rgba(136,120,240,.25);animation-duration:14s;animation-direction:reverse}
+.orbit-ring:nth-child(3){width:min(300px,74vw);height:min(300px,74vw);border-color:rgba(78,205,196,.15);animation-duration:22s}
+@keyframes spin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* ====================================================
+   SECTIONS
+==================================================== */
+.section-wrap{
+  position:relative;z-index:1;
+  padding:90px 24px;
+  max-width:1120px;margin:0 auto;
+}
+.section-wrap.wide{max-width:1280px}
+.section-header{text-align:center;margin-bottom:64px}
+.section-label{
+  font-size:var(--fs-xs);letter-spacing:.35em;
+  text-transform:uppercase;color:var(--gold);
+  display:block;margin-bottom:14px;
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,4.5vw,3.5rem);
+  font-weight:300;line-height:1.2;color:var(--text);
+}
+.section-title em{color:var(--gold-light);font-style:italic}
+.section-desc{
+  color:var(--text-dim);max-width:620px;
+  margin:18px auto 0;font-size:1rem;
+}
+.divider{
+  position:relative;z-index:1;
+  max-width:500px;margin:0 auto;height:1px;
+  background:linear-gradient(90deg,transparent,var(--border),transparent);
+}
+
+/* ====================================================
+   BOOK SUMMARIES TAB SYSTEM
+==================================================== */
+.book-tabs-nav{
+  display:flex;gap:0;flex-wrap:nowrap;overflow-x:auto;
+  border-bottom:2px solid var(--border);
+  margin-bottom:0;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.book-tabs-nav::-webkit-scrollbar{display:none}
+.btab{
+  flex-shrink:0;
+  padding:13px 20px;
+  background:none;border:none;
+  color:var(--text-muted);
+  font-family:'DM Sans',sans-serif;
+  font-size:var(--fs-xs);
+  letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;
+  border-bottom:2px solid transparent;
+  margin-bottom:-2px;white-space:nowrap;
+}
+.btab:hover{color:var(--text-dim)}
+.btab.active{color:var(--gold);border-bottom-color:var(--gold)}
+.btab-content{display:none;padding-top:36px;animation:fadeUp .4s ease}
+.btab-content.active{display:block}
+
+.sum-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:36px 40px;
+  margin-bottom:20px;
+  position:relative;overflow:hidden;
+}
+.sum-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--violet),var(--teal));
+  opacity:.7;
+}
+.sum-card-header{display:flex;gap:20px;align-items:flex-start;margin-bottom:20px}
+.sum-card-icon{font-size:2.2rem;flex-shrink:0;margin-top:4px}
+.sum-card-meta{}
+.sum-card-num{
+  font-size:var(--fs-xs);letter-spacing:.25em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:6px;
+}
+.sum-card-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.4rem,2.5vw,1.9rem);
+  font-weight:600;color:var(--text);
+  line-height:1.2;margin-bottom:8px;
+}
+.sum-card-hook{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;color:var(--gold-light);
+  font-size:1.05rem;
+}
+.sum-body{font-size:1rem;color:var(--text-dim);line-height:1.8}
+.sum-body p{margin-bottom:14px}
+.sum-body strong{color:var(--text);font-weight:500}
+.sum-example{
+  background:var(--surface2);
+  border-left:3px solid var(--gold);
+  border-radius:0 12px 12px 0;
+  padding:18px 22px;margin:18px 0;
+  font-size:.97rem;color:var(--text-dim);
+}
+.sum-example strong{
+  display:block;font-size:var(--fs-xs);
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:8px;font-weight:500;
+}
+.sum-key{
+  background:rgba(136,120,240,.1);
+  border:1px solid rgba(136,120,240,.25);
+  border-radius:12px;padding:16px 20px;
+  margin-top:16px;
+}
+.sum-key-label{
+  font-size:var(--fs-xs);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--violet);
+  margin-bottom:8px;font-weight:500;display:block;
+}
+.sum-key p{font-size:.95rem;color:var(--text-dim)}
+.ptag{
+  display:inline-block;
+  background:rgba(201,168,76,.1);
+  border:1px solid rgba(201,168,76,.25);
+  color:var(--gold);font-size:var(--fs-xs);
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 13px;border-radius:50px;
+  margin:3px 3px 3px 0;
+}
+
+/* ====================================================
+   CHAPTER CARDS (existing chapters section)
+==================================================== */
+.chapters-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:18px;
+}
+.chapter-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:30px;
+  cursor:pointer;transition:all .35s;
+  position:relative;overflow:hidden;
+}
+.chapter-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.chapter-card:hover{border-color:rgba(201,168,76,.35);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.chapter-card:hover::before{opacity:1}
+.ch-icon{font-size:2.2rem;display:block;margin-bottom:14px}
+.ch-num{font-size:var(--fs-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.ch-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.45rem;font-weight:600;
+  color:var(--text);margin-bottom:10px;line-height:1.3;
+}
+.ch-preview{font-size:.92rem;color:var(--text-dim);line-height:1.65;margin-bottom:16px}
+.ch-btn{
+  font-size:var(--fs-xs);letter-spacing:.15em;
+  text-transform:uppercase;color:var(--gold);
+  border:none;background:none;cursor:pointer;
+  padding:0;font-family:'DM Sans',sans-serif;font-weight:400;
+}
+
+/* ====================================================
+   CHAPTER MODAL
+==================================================== */
+.modal-overlay{
+  position:fixed;inset:0;z-index:300;
+  background:rgba(7,8,16,.93);
+  backdrop-filter:blur(14px);
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:24px 16px 40px;overflow-y:auto;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:22px;max-width:780px;width:100%;
+  padding:50px;margin-top:80px;position:relative;
+  transform:translateY(22px);transition:transform .3s;
+  box-shadow:0 40px 100px rgba(0,0,0,.6);
+}
+.modal-overlay.open .modal-box{transform:translateY(0)}
+.modal-close{
+  position:absolute;top:20px;right:26px;
+  background:none;border:none;color:var(--text-dim);
+  font-size:1.6rem;cursor:pointer;line-height:1;
+  transition:color .2s;padding:4px;
+}
+.modal-close:hover{color:var(--gold)}
+.modal-ch-num{font-size:var(--fs-xs);letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.modal-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,3.8vw,2.8rem);
+  font-weight:600;color:var(--text);
+  margin-bottom:6px;line-height:1.2;
+}
+.modal-tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;color:var(--gold-light);
+  font-size:1.1rem;margin-bottom:28px;
+}
+.modal-div{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:22px 0}
+.modal-body{color:var(--text-dim);font-size:1rem;line-height:1.82}
+.modal-body p{margin-bottom:16px}
+.modal-body strong{color:var(--text);font-weight:500}
+.modal-sh{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;color:var(--gold-light);
+  margin:28px 0 10px;font-weight:600;
+}
+.eg-box{
+  background:var(--surface2);border-left:3px solid var(--gold);
+  border-radius:0 12px 12px 0;padding:18px 22px;
+  margin:20px 0;font-size:.97rem;color:var(--text-dim);
+}
+.eg-box strong{
+  display:block;font-size:var(--fs-xs);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:8px;font-weight:500;
+}
+
+/* ====================================================
+   FREQUENCY TRACKER
+==================================================== */
+.freq-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:40px;margin-bottom:28px;
+}
+.freq-card-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.7rem;color:var(--text);
+  margin-bottom:8px;font-weight:600;
+}
+.freq-card-sub{color:var(--text-dim);font-size:.97rem;margin-bottom:28px}
+.freq-levels{display:flex;flex-direction:column;gap:7px}
+.freq-lv{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;border-radius:11px;
+  border:1px solid transparent;cursor:pointer;
+  transition:all .25s;
+}
+.freq-lv:hover{background:var(--surface2);border-color:var(--border)}
+.freq-lv.selected{border-color:var(--gold);background:rgba(201,168,76,.07)}
+.fdot{width:14px;height:14px;border-radius:50%;flex-shrink:0}
+.flv-name{font-weight:500;font-size:.97rem;color:var(--text);min-width:128px}
+.flv-desc{font-size:.88rem;color:var(--text-dim);flex:1}
+.flv-hz{font-size:.78rem;color:var(--text-muted);min-width:66px;text-align:right}
+
+/* symptoms */
+.symp-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(190px,1fr));
+  gap:10px;margin-bottom:28px;
+}
+.symp-chip{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:10px;padding:13px 15px;cursor:pointer;
+  transition:all .2s;font-size:.9rem;
+  color:var(--text-dim);display:flex;align-items:center;gap:9px;
+}
+.symp-chip.selected{
+  border-color:rgba(247,174,248,.5);
+  background:rgba(247,174,248,.08);color:var(--rose);
+}
+
+/* prescription */
+.presc{
+  background:linear-gradient(135deg,rgba(14,16,32,.95),rgba(20,22,48,.95));
+  border:1px solid var(--gold);border-radius:var(--radius);
+  padding:40px;display:none;position:relative;overflow:hidden;
+}
+.presc.visible{display:block;animation:fadeUp .5s ease}
+.rx-lbl{font-size:var(--fs-xs);letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.rx-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.9rem;color:var(--text);
+  margin-bottom:24px;font-weight:600;
+}
+.rx-list{counter-reset:rx;list-style:none;display:flex;flex-direction:column;gap:14px}
+.rx-item{
+  counter-increment:rx;
+  display:flex;gap:16px;align-items:flex-start;
+  padding:18px 20px;
+  background:rgba(7,8,16,.5);
+  border-radius:12px;border:1px solid var(--border);
+}
+.rx-item::before{
+  content:counter(rx,decimal-leading-zero);
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;color:var(--gold);
+  flex-shrink:0;line-height:1;margin-top:2px;
+}
+.rx-item-t{font-weight:500;color:var(--text);font-size:.97rem;margin-bottom:5px}
+.rx-item-d{font-size:.9rem;color:var(--text-dim);line-height:1.65}
+
+/* ====================================================
+   FRAMEWORK TABS
+==================================================== */
+.fw-tabs{
+  display:flex;gap:5px;flex-wrap:wrap;
+  border-bottom:2px solid var(--border);
+  margin-bottom:0;
+}
+.ftab{
+  padding:13px 22px;
+  border-radius:12px 12px 0 0;
+  border:1px solid transparent;border-bottom:none;
+  background:none;color:var(--text-muted);
+  font-family:'DM Sans',sans-serif;
+  font-size:var(--fs-xs);letter-spacing:.1em;
+  text-transform:uppercase;cursor:pointer;
+  transition:all .2s;margin-bottom:-2px;
+}
+.ftab.active{
+  background:var(--surface);
+  border-color:var(--border);
+  color:var(--gold);
+  border-bottom-color:var(--surface);
+}
+.ftab:not(.active):hover{color:var(--text-dim)}
+.ftab-pane{display:none;padding-top:30px}
+.ftab-pane.active{display:block;animation:fadeUp .4s ease}
+
+/* ====================================================
+   SCENARIO CARDS
+==================================================== */
+.sc-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:34px;margin-bottom:22px;
+  transition:border-color .3s;
+}
+.sc-card:hover{border-color:rgba(201,168,76,.3)}
+.sc-head{display:flex;align-items:flex-start;gap:18px;margin-bottom:22px}
+.sc-emoji{font-size:2.1rem;flex-shrink:0;margin-top:4px}
+.sc-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:600;
+  color:var(--text);margin-bottom:6px;
+}
+.sc-problem{font-size:.92rem;color:var(--text-dim)}
+.sc-steps{display:flex;flex-direction:column;gap:10px}
+.sc-step{
+  display:flex;gap:13px;align-items:flex-start;
+  padding:13px 16px;background:var(--surface2);
+  border-radius:10px;font-size:.92rem;color:var(--text-dim);
+}
+.sc-n{
+  background:var(--gold);color:var(--bg);
+  border-radius:50%;width:24px;height:24px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.72rem;font-weight:600;
+  flex-shrink:0;margin-top:1px;
+}
+.sc-step strong{color:var(--text);font-weight:500}
+
+/* ====================================================
+   MASTER GRID
+==================================================== */
+.master-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.mc{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:30px;
+  transition:all .3s;position:relative;overflow:hidden;
+}
+.mc::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--acc,var(--gold));opacity:0;transition:opacity .3s;
+}
+.mc:hover::after{opacity:1}
+.mc:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4);border-color:rgba(201,168,76,.2)}
+.mc-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--text-muted);line-height:1;margin-bottom:10px}
+.mc-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--text);margin-bottom:10px}
+.mc-desc{font-size:.9rem;color:var(--text-dim);line-height:1.7}
+
+/* ====================================================
+   PRACTICE TOOLS
+==================================================== */
+.practice-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:24px;
+}
+.med-timer{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:34px;text-align:center;
+}
+.t-label{color:var(--text-dim);font-size:.95rem;margin-bottom:16px}
+.t-ring{
+  width:120px;height:120px;border-radius:50%;
+  border:3px solid var(--violet-dim);
+  border-top-color:var(--violet);
+  margin:0 auto 20px;position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.t-ring.running{animation:tspin 1s linear infinite}
+@keyframes tspin{to{transform:rotate(360deg)}}
+.t-inner{
+  position:absolute;
+  width:100px;height:100px;
+  background:var(--surface2);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.t-ring.running .t-inner{animation:counter-tspin 1s linear infinite}
+@keyframes counter-tspin{to{transform:rotate(-360deg)}}
+.t-disp{
+  font-family:'Cormorant Garamond',serif;
+  font-size:4rem;color:var(--gold);
+  margin:0 0 20px;font-weight:300;
+}
+.t-ctrls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.t-btn{
+  background:var(--violet-dim);border:1px solid rgba(136,120,240,.3);
+  color:var(--violet);padding:10px 22px;border-radius:50px;
+  font-family:'DM Sans',sans-serif;font-size:.8rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;
+}
+.t-btn:hover{background:rgba(136,120,240,.35);transform:translateY(-1px)}
+.journal-box{
+  background:var(--surface2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:30px;
+}
+.j-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;color:var(--text);
+  margin-bottom:14px;font-weight:600;
+}
+.j-sub{font-size:.9rem;color:var(--text-dim);margin-bottom:14px}
+.j-ta{
+  width:100%;background:var(--surface);
+  border:1px solid var(--border);border-radius:12px;
+  padding:16px;color:var(--text);
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.08rem;line-height:1.7;
+  resize:vertical;min-height:130px;
+  outline:none;transition:border-color .2s;
+}
+.j-ta:focus{border-color:rgba(201,168,76,.4)}
+.j-prompts{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.j-btn{
+  background:var(--gold-dim);border:1px solid rgba(201,168,76,.25);
+  color:var(--gold);padding:7px 15px;border-radius:50px;
+  font-size:.78rem;cursor:pointer;transition:all .2s;
+  font-family:'DM Sans',sans-serif;
+}
+.j-btn:hover{background:rgba(201,168,76,.18)}
+
+/* ====================================================
+   FOOTER
+==================================================== */
+footer{
+  position:relative;z-index:1;
+  border-top:1px solid var(--border);
+  padding:56px 24px;text-align:center;
+}
+.f-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;color:var(--gold);
+  margin-bottom:12px;font-weight:600;
+}
+.f-text{color:var(--text-muted);font-size:.85rem;line-height:1.7}
+
+/* ====================================================
+   SCROLL REVEAL
+==================================================== */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ====================================================
+   RESPONSIVE
+==================================================== */
+@media(max-width:900px){
+  nav{padding:14px 22px}
+  .nav-links{display:none}
+  .nav-ham{display:flex}
+}
+
+/* ====================================================
+   RESPONSIVE — ALL DEVICES
+==================================================== */
+/* ── TABLET: 1024px ── */
+@media(max-width:1024px){
+  .section-wrap{padding:80px 28px}
+  .section-wrap.wide{padding:80px 28px}
+  .chapters-grid{grid-template-columns:repeat(2,1fr)}
+  .master-grid{grid-template-columns:repeat(2,1fr)}
+  .qa-grid{grid-template-columns:repeat(2,1fr)}
+}
+/* ── SMALL TABLET / LARGE PHONE: 900px ── */
+@media(max-width:900px){
+  nav{padding:14px 20px}
+  .nav-links{display:none}
+  .nav-ham{display:flex}
+  .hero-title{font-size:clamp(2.8rem,10vw,5rem)}
+  .section-title{font-size:clamp(1.9rem,5vw,2.8rem)}
+  .freq-card{padding:28px 22px}
+  .practice-grid{grid-template-columns:1fr}
+  .ps-choices{grid-template-columns:repeat(2,1fr)}
+}
+/* ── MOBILE: 700px ── */
+@media(max-width:700px){
+  :root{--fs-body:1rem;--fs-sm:.9rem;--fs-xs:.78rem}
+  .section-wrap,.section-wrap.wide{padding:60px 16px}
+  .section-header{margin-bottom:40px}
+  nav{padding:12px 16px}
+  .nav-logo{font-size:1.15rem}
+  .modal-box{padding:28px 18px;margin-top:56px;border-radius:16px}
+  .modal-title{font-size:clamp(1.6rem,6vw,2.2rem)}
+  .freq-card{padding:22px 16px}
+  .presc{padding:24px 16px}
+  .sum-card{padding:22px 16px}
+  .sum-card-header{flex-direction:column;gap:10px}
+  .sum-card-icon{font-size:1.8rem}
+  .flv-hz{display:none}
+  .flv-desc{display:none}
+  .flv-name{min-width:unset}
+  .ftab{padding:9px 12px;font-size:.72rem}
+  .btab{padding:9px 12px;font-size:.72rem}
+  .chapters-grid{grid-template-columns:1fr}
+  .master-grid{grid-template-columns:1fr}
+  .qa-grid{grid-template-columns:1fr}
+  .practice-grid{grid-template-columns:1fr}
+  .symp-grid{grid-template-columns:1fr 1fr}
+  .ps-step{padding:22px 16px}
+  .ps-solution{padding:26px 16px}
+  .ps-choices{grid-template-columns:1fr}
+  .ps-step-num{font-size:2rem}
+  .ps-sol-title{font-size:1.6rem}
+  .sc-card{padding:22px 16px}
+  .mc{padding:22px 18px}
+  .med-timer{padding:26px 18px}
+  .journal-box{padding:22px 16px}
+  .fw-tabs{gap:4px}
+  .freq-lv{padding:12px 14px;gap:10px}
+  .sum-key{padding:14px 16px}
+  .sum-example{padding:14px 16px}
+  .btn-primary,.btn-ghost{padding:13px 26px;font-size:.82rem}
+  .hero-ctas{flex-direction:column;align-items:stretch;gap:12px}
+  .orbit-wrap{width:min(260px,78vw);height:min(260px,78vw)}
+  .rx-item{padding:14px 16px}
+  .sc-step{padding:11px 14px}
+  .eg-box{padding:14px 16px}
+  .modal-close{top:14px;right:16px}
+  footer{padding:40px 20px}
+}
+/* ── SMALL MOBILE: 480px ── */
+@media(max-width:480px){
+  :root{--fs-body:.97rem}
+  .section-wrap,.section-wrap.wide{padding:50px 14px}
+  nav{padding:12px 14px}
+  .nav-logo{font-size:1.05rem;letter-spacing:0.05em}
+  .hero-title{font-size:clamp(2.4rem,12vw,4rem)}
+  .hero-subtitle{font-size:.95rem}
+  .modal-box{padding:22px 14px;margin-top:50px}
+  .freq-card{padding:18px 14px}
+  .presc{padding:20px 14px}
+  .sum-card{padding:18px 14px}
+  .ps-step{padding:18px 14px}
+  .ps-solution{padding:20px 14px}
+  .ps-step-header{gap:10px}
+  .ps-step-num{font-size:1.7rem}
+  .ps-choice{padding:13px 14px;font-size:.88rem}
+  .sc-card{padding:18px 14px}
+  .mc{padding:18px 14px}
+  .chapter-card{padding:22px 16px}
+  .qa-card{padding:20px 16px 16px}
+  .sum-card-title{font-size:1.25rem}
+  .t-disp{font-size:3rem}
+  .j-ta{min-height:110px;font-size:1rem}
+  .btab,.ftab{padding:8px 10px;font-size:.7rem}
+  .fw-tabs{gap:3px}
+  .book-tabs-nav{gap:0}
+  .freq-lv{padding:10px 12px;gap:8px}
+  .fdot{width:12px;height:12px}
+  .flv-name{font-size:.88rem}
+  .hero-ctas{gap:10px}
+  .btn-primary,.btn-ghost{padding:13px 20px;font-size:.8rem}
+  .symp-grid{grid-template-columns:1fr 1fr}
+  .symp-chip{padding:11px 12px;font-size:.84rem}
+  .rx-item::before{font-size:1.2rem}
+  .rx-item-t{font-size:.92rem}
+  .rx-item-d{font-size:.84rem}
+}
+/* ── VERY SMALL: 360px (older Androids) ── */
+@media(max-width:360px){
+  nav{padding:10px 12px}
+  .nav-logo{font-size:.95rem}
+  .hero-title{font-size:clamp(2rem,13vw,3rem)}
+  .section-wrap,.section-wrap.wide{padding:44px 12px}
+  .freq-card{padding:16px 12px}
+  .modal-box{padding:18px 12px}
+  .ps-choice{font-size:.84rem;padding:11px 12px}
+  .symp-grid{grid-template-columns:1fr}
+  .btab,.ftab{padding:7px 9px;font-size:.68rem}
+}
+/* ── iOS SAFE AREA (notch / home indicator) ── */
+@supports(padding:max(0px)){
+  nav{padding-top:max(16px,env(safe-area-inset-top));padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+  .mobile-menu{padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}
+  footer{padding-bottom:max(56px,env(safe-area-inset-bottom))}
+  .modal-overlay{padding-bottom:max(40px,env(safe-area-inset-bottom))}
+}
+/* ── TOUCH: remove hover state flicker on mobile ── */
+@media(hover:none){
+  .chapter-card:hover,.qa-card:hover,.sc-card:hover,.mc:hover{transform:none;box-shadow:none}
+  .btn-primary:hover,.btn-ghost:hover{transform:none;box-shadow:none}
+  .ps-choice:hover{transform:none;border-color:var(--border)}
+  .freq-lv:hover{background:transparent;border-color:transparent}
+}
+/* ── REDUCED MOTION ACCESSIBILITY ── */
+@media(prefers-reduced-motion:reduce){
+  .star,.orbit-ring,.orbit-center,.t-ring.running{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{transition-duration:.01ms !important}
+}
+/* ── PRINT ── */
+@media print{
+  #starfield,.orbit-wrap,nav,.mobile-menu,footer,.hero-ctas{display:none}
+  body{background:#fff;color:#000;font-size:12pt}
+  .sum-card,.freq-card,.ps-step,.sc-card{border:1px solid #ccc;break-inside:avoid;margin-bottom:12pt}
+  .sum-card-title,.section-title,.hero-title{color:#000}
+  .sum-body,.modal-body,.ps-sol-sub{color:#333}
+}
+
+/* ====================================================
+   QUICK ACCESS GRID
+==================================================== */
+.qa-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:18px;
+}
+.qa-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:26px 28px 22px;
+  cursor:pointer;
+  transition:all .3s;
+  position:relative;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.qa-card::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--violet));
+  opacity:0;transition:opacity .3s;
+}
+.qa-card:hover{
+  border-color:rgba(201,168,76,.35);
+  transform:translateY(-3px);
+  box-shadow:0 16px 44px rgba(0,0,0,.4);
+}
+.qa-card:hover::after{opacity:1}
+.qa-top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.qa-icon{font-size:1.9rem;flex-shrink:0}
+.qa-meta{}
+.qa-chnum{
+  font-size:var(--fs-xs);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:3px;
+}
+.qa-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;font-weight:600;
+  color:var(--text);line-height:1.25;
+}
+.qa-preview{
+  font-size:.9rem;color:var(--text-dim);
+  line-height:1.65;flex:1;margin-bottom:16px;
+}
+.qa-cta{
+  font-size:var(--fs-xs);letter-spacing:.15em;
+  text-transform:uppercase;color:var(--gold);
+  font-weight:500;display:flex;align-items:center;gap:6px;
+  margin-top:auto;
+}
+.qa-cta::after{content:'→';transition:transform .2s}
+.qa-card:hover .qa-cta::after{transform:translateX(4px)}
+
+/* ====================================================
+   PROBLEM SOLVER
+==================================================== */
+.ps-step{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:36px 40px;
+  margin-bottom:20px;
+  animation:fadeUp .4s ease;
+}
+.ps-step-header{
+  display:flex;align-items:flex-start;gap:20px;
+  margin-bottom:28px;
+}
+.ps-step-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.5rem;font-weight:300;
+  color:var(--gold);line-height:1;flex-shrink:0;
+  opacity:.7;
+}
+.ps-step-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.55rem;font-weight:600;
+  color:var(--text);margin-bottom:5px;
+  line-height:1.25;
+}
+.ps-step-sub{font-size:.93rem;color:var(--text-dim)}
+.ps-choices{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+  gap:12px;
+}
+.ps-choice{
+  background:var(--surface2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px 18px;
+  cursor:pointer;
+  transition:all .22s;
+  font-size:.95rem;
+  color:var(--text-dim);
+  text-align:left;
+  font-family:'DM Sans',sans-serif;
+  display:flex;align-items:center;gap:12px;
+  line-height:1.45;
+}
+.ps-choice:hover{
+  border-color:var(--gold);
+  background:rgba(201,168,76,.06);
+  color:var(--text);
+  transform:translateY(-2px);
+}
+.ps-choice.selected{
+  border-color:var(--gold);
+  background:rgba(201,168,76,.1);
+  color:var(--text);
+}
+.ps-choice-icon{font-size:1.4rem;flex-shrink:0}
+
+/* Solution */
+.ps-solution{
+  background:linear-gradient(135deg,rgba(14,16,32,.98),rgba(20,22,48,.98));
+  border:1px solid var(--gold);
+  border-radius:var(--radius);
+  padding:44px;
+  animation:fadeUp .5s ease;
+  position:relative;overflow:hidden;
+}
+.ps-solution::before{
+  content:'';position:absolute;top:-40%;right:-20%;
+  width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,.04),transparent 65%);
+  pointer-events:none;
+}
+.ps-sol-header{margin-bottom:32px}
+.ps-sol-badge{
+  display:inline-block;
+  font-size:var(--fs-xs);letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:14px;
+}
+.ps-sol-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.7rem,3vw,2.4rem);
+  font-weight:600;color:var(--text);
+  margin-bottom:10px;line-height:1.2;
+}
+.ps-sol-sub{font-size:1rem;color:var(--text-dim);line-height:1.7}
+.ps-sol-diagnosis{
+  background:rgba(136,120,240,.08);
+  border:1px solid rgba(136,120,240,.2);
+  border-radius:14px;
+  padding:22px 26px;
+  margin-bottom:28px;
+}
+.ps-sol-diagnosis-label{
+  font-size:var(--fs-xs);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--violet);
+  margin-bottom:10px;font-weight:500;display:block;
+}
+.ps-sol-diagnosis p{font-size:.97rem;color:var(--text-dim);line-height:1.75}
+.ps-sol-steps-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;color:var(--gold-light);
+  margin-bottom:16px;font-weight:600;
+}
+.ps-sol-step-list{
+  display:flex;flex-direction:column;gap:12px;
+  margin-bottom:28px;
+}
+.ps-sol-step{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:16px 18px;
+  background:rgba(7,8,16,.5);
+  border-radius:12px;border:1px solid var(--border);
+  font-size:.95rem;color:var(--text-dim);line-height:1.65;
+}
+.ps-sol-step-n{
+  background:var(--gold);color:var(--bg);
+  border-radius:50%;width:26px;height:26px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;font-weight:600;flex-shrink:0;margin-top:1px;
+}
+.ps-sol-step strong{color:var(--text);font-weight:500}
+.ps-sol-eg{
+  background:var(--surface2);
+  border-left:3px solid var(--gold);
+  border-radius:0 12px 12px 0;
+  padding:20px 24px;margin-bottom:24px;
+  font-size:.97rem;color:var(--text-dim);line-height:1.75;
+}
+.ps-sol-eg-label{
+  font-size:var(--fs-xs);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:10px;font-weight:500;display:block;
+}
+.ps-sol-eg p{margin-bottom:8px}
+.ps-sol-eg p:last-child{margin-bottom:0}
+.ps-sol-affirm{
+  background:rgba(201,168,76,.07);
+  border:1px solid rgba(201,168,76,.25);
+  border-radius:14px;padding:22px 26px;
+}
+.ps-sol-affirm-label{
+  font-size:var(--fs-xs);letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:12px;font-weight:500;display:block;
+}
+.ps-sol-affirm-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.25rem;font-style:italic;
+  color:var(--gold-light);line-height:1.65;
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- ── STARFIELD ── -->
+<div id="starfield"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <a href="#hero" class="nav-logo">✦ Outsmart Reality</a>
+  <ul class="nav-links">
+    <li><a href="#summaries">Book Summaries</a></li>
+    <li><a href="#quickaccess">Quick Access</a></li>
+    <li><a href="#tracker">Freq Check</a></li>
+    <li><a href="#problem-solver">Problem Solver</a></li>
+    <li><a href="#guide">Framework</a></li>
+    <li><a href="#scenarios">Scenarios</a></li>
+    <li><a href="#master">Mastery</a></li>
+    <li><a href="#practice">Practice</a></li>
+  </ul>
+  <button class="nav-ham" id="hamBtn" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#summaries" onclick="closeMenu()">📚 Book Summaries</a>
+  <a href="#quickaccess" onclick="closeMenu()">⚡ Quick Access</a>
+  <a href="#tracker" onclick="closeMenu()">🎚 Frequency Check</a>
+  <a href="#problem-solver" onclick="closeMenu()">🔧 Problem Solver</a>
+  <a href="#guide" onclick="closeMenu()">🗺 Framework</a>
+  <a href="#scenarios" onclick="closeMenu()">🌍 Real Scenarios</a>
+  <a href="#master" onclick="closeMenu()">👑 Mastery System</a>
+  <a href="#practice" onclick="closeMenu()">🧘 Practice Tools</a>
+</div>
+
+<!-- ── HERO ── -->
+<div id="hero">
+  <div class="hero-eyebrow">Based on the Book by Nero Knowledge</div>
+  <h1 class="hero-title">Outsmart<br><em>Reality</em></h1>
+  <p class="hero-subtitle">The complete interactive guide to mastering your frequency, reprogramming your subconscious, and shifting into the reality you desire.</p>
+  <div class="hero-ctas">
+    <a href="#tracker" class="btn-primary">Check My Frequency</a>
+    <a href="#summaries" class="btn-ghost">Explore the Book</a>
+  </div>
+  <div class="orbit-wrap">
+    <div class="orbit-ring"></div>
+    <div class="orbit-ring"></div>
+    <div class="orbit-ring"></div>
+    <div class="orbit-center"></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════
+     BOOK SUMMARIES — ALL 20 CHAPTERS
+══════════════════════════════════════════════════ -->
+<div class="section-wrap wide" id="summaries">
+  <div class="section-header reveal">
+    <span class="section-label">The Complete Book</span>
+    <h2 class="section-title">All 20 Chapters<br><em>Summarised</em></h2>
+    <p class="section-desc">Every chapter from <em>Outsmarting Reality</em> by Nero Knowledge — distilled into its core teaching, real examples from the book, and the key takeaway.</p>
+  </div>
+  <div class="reveal">
+    <div class="book-tabs-nav" id="bookTabsNav"></div>
+    <div id="bookTabsContent"></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════
+     DEEP DIVE CHAPTER CARDS
+══════════════════════════════════════════════════ -->
+<div class="section-wrap wide" id="chapters">
+  <div class="section-header reveal">
+    <span class="section-label">Deep Dive</span>
+    <h2 class="section-title">Core Chapters<br><em>Explored in Full</em></h2>
+    <p class="section-desc">Tap any card for an in-depth breakdown of the chapter's quantum mechanics, real-life examples, and practical exercises.</p>
+  </div>
+  <div class="chapters-grid" id="chaptersGrid"></div>
+</div>
+
+<!-- CHAPTER MODAL -->
+<div class="modal-overlay" id="chModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-ch-num" id="mNum"></div>
+    <h2 class="modal-title" id="mTitle"></h2>
+    <div class="modal-tagline" id="mTag"></div>
+    <div class="modal-div"></div>
+    <div class="modal-body" id="mBody"></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════
+     QUICK ACCESS — 12 CORE CHAPTERS
+══════════════════════════════════════════════════ -->
+<div class="section-wrap wide" id="quickaccess">
+  <div class="section-header reveal">
+    <span class="section-label">Quick Access</span>
+    <h2 class="section-title">12 Core Concepts<br><em>At a Glance</em></h2>
+    <p class="section-desc">The foundational chapters of the book — each with a one-line essence and instant deep-dive access.</p>
+  </div>
+  <div class="qa-grid" id="qaGrid"></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════
+     FREQUENCY TRACKER (existing — untouched)
+══════════════════════════════════════════════════ -->
+<div class="section-wrap" id="tracker">
+  <div class="section-header reveal">
+    <span class="section-label">Self-Assessment</span>
+    <h2 class="section-title">Your Frequency<br><em>Tracker</em></h2>
+    <p class="section-desc">Locate where your vibration currently sits, identify what is dragging it down, and receive a personalised step-by-step recovery protocol.</p>
+  </div>
+  <div class="freq-card reveal">
+    <h3 class="freq-card-title">Step 1 — Where Are You Right Now?</h3>
+    <p class="freq-card-sub">Honestly select the emotional frequency level that most describes your current state.</p>
+    <div class="freq-levels" id="freqLevels"></div>
+  </div>
+  <div class="freq-card reveal" id="sympSection" style="display:none">
+    <h3 class="freq-card-title">Step 2 — What Are You Experiencing?</h3>
+    <p class="freq-card-sub">Select everything that applies to your current life situation.</p>
+    <div class="symp-grid" id="sympGrid"></div>
+    <button class="btn-primary" onclick="genRx()">Generate My Recovery Protocol →</button>
+  </div>
+  <div class="presc" id="presc">
+    <div class="rx-lbl">Your Personalised Recovery Protocol</div>
+    <h3 class="rx-title" id="rxTitle"></h3>
+    <ol class="rx-list" id="rxList"></ol>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════
+     PROBLEM SOLVER — ENHANCED FREQ CHECKER
+══════════════════════════════════════════════════ -->
+<div class="section-wrap" id="problem-solver">
+  <div class="section-header reveal">
+    <span class="section-label">Deep Problem Solver</span>
+    <h2 class="section-title">Tell Me Your Problem —<br><em>Get a Real Solution</em></h2>
+    <p class="section-desc">Answer a series of targeted questions about what you're facing. The app will diagnose the exact frequency block and give you a specific, example-backed solution drawn directly from the book.</p>
+  </div>
+  <div class="reveal" id="psSections">
+
+    <!-- STEP 1: Life Area -->
+    <div class="ps-step" id="ps-step1">
+      <div class="ps-step-header">
+        <span class="ps-step-num">01</span>
+        <div>
+          <div class="ps-step-title">What area of life is this about?</div>
+          <div class="ps-step-sub">Select the area causing the most friction right now.</div>
+        </div>
+      </div>
+      <div class="ps-choices" id="ps-area-choices"></div>
+    </div>
+
+    <!-- STEP 2: Specific Problem -->
+    <div class="ps-step" id="ps-step2" style="display:none">
+      <div class="ps-step-header">
+        <span class="ps-step-num">02</span>
+        <div>
+          <div class="ps-step-title">What specifically is happening?</div>
+          <div class="ps-step-sub">Pick the description closest to your situation.</div>
+        </div>
+      </div>
+      <div class="ps-choices" id="ps-problem-choices"></div>
+    </div>
+
+    <!-- STEP 3: Inner State -->
+    <div class="ps-step" id="ps-step3" style="display:none">
+      <div class="ps-step-header">
+        <span class="ps-step-num">03</span>
+        <div>
+          <div class="ps-step-title">How long has this been happening?</div>
+          <div class="ps-step-sub">Duration reveals whether this is a surface disruption or a deep program.</div>
+        </div>
+      </div>
+      <div class="ps-choices" id="ps-duration-choices"></div>
+    </div>
+
+    <!-- STEP 4: Belief Check -->
+    <div class="ps-step" id="ps-step4" style="display:none">
+      <div class="ps-step-header">
+        <span class="ps-step-num">04</span>
+        <div>
+          <div class="ps-step-title">What do you secretly believe about this?</div>
+          <div class="ps-step-sub">Be brutally honest. This reveals the subconscious frequency you are actually broadcasting.</div>
+        </div>
+      </div>
+      <div class="ps-choices" id="ps-belief-choices"></div>
+    </div>
+
+    <!-- STEP 5: Action Taken -->
+    <div class="ps-step" id="ps-step5" style="display:none">
+      <div class="ps-step-header">
+        <span class="ps-step-num">05</span>
+        <div>
+          <div class="ps-step-title">What have you tried so far?</div>
+          <div class="ps-step-sub">This identifies whether the issue is strategy or frequency.</div>
+        </div>
+      </div>
+      <div class="ps-choices" id="ps-action-choices"></div>
+    </div>
+
+    <!-- SOLUTION OUTPUT -->
+    <div class="ps-solution" id="ps-solution" style="display:none">
+      <div class="ps-sol-header">
+        <span class="ps-sol-badge">✦ Your Diagnosis & Solution</span>
+        <h3 class="ps-sol-title" id="ps-sol-title"></h3>
+        <p class="ps-sol-sub" id="ps-sol-sub"></p>
+      </div>
+      <div class="ps-sol-diagnosis" id="ps-sol-diagnosis"></div>
+      <div class="ps-sol-steps" id="ps-sol-steps"></div>
+      <div class="ps-sol-example" id="ps-sol-example"></div>
+      <div class="ps-sol-affirmation" id="ps-sol-affirmation"></div>
+      <button class="btn-ghost" style="margin-top:28px" onclick="resetPS()">← Start Over</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════
+     FRAMEWORK GUIDE
+══════════════════════════════════════════════════ -->
+<div class="section-wrap" id="guide">
+  <div class="section-header reveal">
+    <span class="section-label">The Framework</span>
+    <h2 class="section-title">Return to Your<br><em>Desired Reality</em></h2>
+    <p class="section-desc">A complete step-by-step guide for when your frequency gets disturbed — every method the book prescribes, in one place.</p>
+  </div>
+  <div class="reveal">
+    <div class="fw-tabs" id="fwTabs"></div>
+    <div id="fwContent"></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════
+     REAL LIFE SCENARIOS
+══════════════════════════════════════════════════ -->
+<div class="section-wrap wide" id="scenarios">
+  <div class="section-header reveal">
+    <span class="section-label">Real Life Navigation</span>
+    <h2 class="section-title">Life Scenarios &<br><em>How to Navigate</em></h2>
+    <p class="section-desc">Concrete situations from the book's teachings with exact steps to recalibrate and return to high frequency.</p>
+  </div>
+  <div id="scenContainer"></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════
+     MASTER SYSTEM
+══════════════════════════════════════════════════ -->
+<div class="section-wrap wide" id="master">
+  <div class="section-header reveal">
+    <span class="section-label">Mastery Guide</span>
+    <h2 class="section-title">The Complete<br><em>Reality Mastery System</em></h2>
+    <p class="section-desc">A synthesis of all 20 chapters into 12 actionable principles for outsmarting reality every single day.</p>
+  </div>
+  <div class="master-grid" id="masterGrid"></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════════════════════════════════
+     PRACTICE TOOLS
+══════════════════════════════════════════════════ -->
+<div class="section-wrap" id="practice">
+  <div class="section-header reveal">
+    <span class="section-label">Daily Practice</span>
+    <h2 class="section-title">Tools &<br><em>Practice Space</em></h2>
+  </div>
+  <div class="practice-grid reveal">
+    <div class="med-timer">
+      <p class="t-label">Frequency Reset Meditation Timer</p>
+      <div class="t-ring" id="tRing">
+        <div class="t-inner"><span style="font-size:1.5rem">🌌</span></div>
+      </div>
+      <div class="t-disp" id="tDisp">05:00</div>
+      <div class="t-ctrls">
+        <button class="t-btn" onclick="setTimer(5)">5 min</button>
+        <button class="t-btn" onclick="setTimer(10)">10 min</button>
+        <button class="t-btn" onclick="setTimer(21)">21 min</button>
+        <button class="t-btn" id="tBtn" onclick="toggleTimer()">▶ Start</button>
+      </div>
+      <p style="color:var(--text-muted);font-size:.83rem;margin-top:14px">Sit in stillness. Breathe into your desired frequency.</p>
+    </div>
+    <div class="journal-box">
+      <h3 class="j-title">Frequency Journal</h3>
+      <p class="j-sub">Write from the perspective of your desired reality — already achieved. Feel it as you write.</p>
+      <textarea class="j-ta" id="jText" placeholder="I am grateful that..."></textarea>
+      <div class="j-prompts">
+        <button class="j-btn" onclick="jp('I am grateful that today I experienced...')">Gratitude</button>
+        <button class="j-btn" onclick="jp('My desired reality looks and feels like...')">Vision</button>
+        <button class="j-btn" onclick="jp('I release the old frequency belief that...')">Release</button>
+        <button class="j-btn" onclick="jp('I am already the person who...')">Identity</button>
+        <button class="j-btn" onclick="document.getElementById(\'jText\').value=\'\'">Clear</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="f-logo">✦ Outsmart Reality</div>
+  <p class="f-text">
+    An interactive guide based on <em>Outsmarting Reality</em> by Nero Knowledge<br>
+    Your consciousness is the tuner. Your life is the broadcast.<br>
+    <span style="color:var(--text-muted);font-size:.78rem;margin-top:8px;display:block">
+      To deploy: save this file as <code style="color:var(--gold)">index.html</code> and push to your GitHub Pages repository.
+    </span>
+  </p>
+</footer>
+
+<!-- ══════════════════════════════════════════════════
+     ALL DATA & JAVASCRIPT
+══════════════════════════════════════════════════ -->
+<script>
+/* ── BOOK SUMMARIES DATA (all 20 chapters from the PDF) ─────────── */
+const bookSummaries = [
+  {
+    num:"Ch 1", icon:"🔄",
+    title:"The Old Frequency",
+    hook:"Your past identity is a living parasite — and you are feeding it.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Our past identity creates a parasitic "old frequency" — an energetic entity sustained by our negative thoughts and emotions. This old frequency feeds on fear, neediness, and pain, keeping us stuck in familiar misery. It is not random bad luck. It is an active energetic pattern we have disciplined ourselves into over years.</p>
+        <p>The chapter urges us to sacrifice old patterns so a new, empowered self can emerge. This sacrifice is not loss — it is liberation. You cannot step into a new reality while dragging the old frequency behind you.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          A woman who believed she was unattractive began to genuinely see herself as beautiful. As a result, men suddenly started seeking her out — not because she changed her appearance, but because she changed her inner frequency. Her outer reality reorganised itself to match her new inner broadcast.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>The old frequency is not who you are — it is a habit you have mistaken for identity. Recognising it as separate from you is the first act of freedom. Sacrifice the old pattern deliberately and consciously, or it will continue to feed on your energy and create your reality.</p>
+        </div>
+      </div>
+    `
+  },
+  {
+    num:"Ch 2", icon:"⚖️",
+    title:"Reality Doesn't Care If You're Nice",
+    hook:"The universe is neutral. It responds to frequency, not morality.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> The universe does not reward goodness or punish wickedness. It simply mirrors frequency back. Good intentions alone will not bring desired outcomes unless one's state of consciousness aligns with those goals.</p>
+        <p>Knowledge makes the provocative observation that "the nicest people often have the worst frequencies, ultimately creating misery" while "even the most unethical people often have the best frequencies, creating success." This is not an endorsement of bad behaviour — it is a wake-up call that inner state, not moral virtue, drives outcomes.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          A deeply kind and generous person perpetually struggles financially — not because the universe is unjust, but because they carry a constant inner narrative of "not enoughness" and self-sacrifice. Meanwhile, someone with less admirable character but a bold, certain inner state attracts wealth and opportunity with apparent ease.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>Being nice is valuable as a human virtue — but it is not a frequency strategy. A supportive inner state (confidence, self-worth, certainty) will manifest positive results regardless of whether the universe "approves" of you morally. Dwelling in limitation will yield hardship regardless of how good a person you are.</p>
+        </div>
+      </div>
+    `
+  },
+  {
+    num:"Ch 3", icon:"🏋️",
+    title:"The First Step to Mastering Reality",
+    hook:"Self-discipline is not a personality trait — it is the foundation of reality creation.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> The first step in manifesting change is self-discipline. Mastering reality equals mastering oneself — we must control habits and follow through on our own commitments. The problem is that most people are already disciplined — just disciplined in the wrong direction, repeatedly reinforcing old patterns.</p>
+        <p>Knowledge introduces the concept of <strong>ATFT (Always True To Form)</strong> — doing what you say you will do, especially to yourself. Every time you keep a promise to your own mind, you build energetic trust with yourself. Every time you fail to act (ITFT — Inconsistent True To Form), you train your mind to expect disappointment from itself.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          If you tell yourself you will wake up at 6am and meditate, but repeatedly hit snooze, you are training your subconscious that your own declarations are meaningless. The mind stops believing you. This erodes your ability to hold a new frequency — because the signal you're broadcasting is "my intentions don't materialise."
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>Mastering reality begins with mastering yourself. The ego is a tool to be directed, not an enemy to fight. Build self-trust through small, consistent acts of doing exactly what you say you will. Each one is an investment in your frequency credibility.</p>
+        </div>
+        <span class="ptag">ATFT Practice</span><span class="ptag">Daily Commitment</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 4", icon:"📈",
+    title:"Sacrifice or Pay the Universe Interest",
+    hook:"Your frequency compounds over time — for better or worse.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Knowledge introduces the concept of "universal compound interest." The more we dwell in a state — positive or negative — the more it solidifies and compounds in our life, much like wealth or poverty snowballing. Time amplifies whatever frequency you are anchored in.</p>
+        <p>Change requires sacrifice. To make room for a new reality, you must give up the old one. Nothing comes from nothing — the universe operates on exchange. As Knowledge states: "To get a new reality, one must sacrifice the current reality." We resist letting go because the old frequency feels comfortable, even when it is painful. Familiarity is mistaken for safety.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone stuck in financial struggle who refuses to change their spending patterns, belief systems, or social environment is "paying compound interest" — the gap between where they are and where they want to be grows wider with time, not smaller.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>Transformation demands intentional sacrifice. Choose to let go of outdated beliefs and attachments, or you will pay "universe interest" — staying stuck while the cost of inaction compounds. Every day you delay changing your frequency is a day you deepen the old one.</p>
+        </div>
+        <span class="ptag">Sacrifice Audit</span><span class="ptag">Compound Frequency</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 5", icon:"🔭",
+    title:"The Mechanics of the Universe",
+    hook:"The universe has two jobs: magnify what you feel, and maintain where you are.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Two guiding principles govern how the universe responds to you: <strong>Magnify</strong> and <strong>Maintain</strong>. The universe magnifies your current state — if you're feeling joy, it sends more joy; if anger, more anger. Simultaneously, it seeks equilibrium, working to maintain you at your current frequency level.</p>
+        <p>This double action means life tends to amplify whatever you feel and then stabilise it. Being anxious draws more stressful situations. Being grateful draws more blessings. The universe is not your enemy — it is a mirror. "The universe is a victim of your frequency, not the other way around."</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          A person in a state of chronic stress notices that every week brings new problems — car trouble, relationship friction, work difficulties. It appears as though life is attacking them. In reality, the universe is simply magnifying their dominant frequency (stress) and maintaining equilibrium at that level.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>Since the universe will magnify and maintain whatever you broadcast, the question is not "why is life doing this to me?" but "what am I broadcasting that created this?" Deliberately cultivate high-frequency states and the universe's magnification mechanism works in your favour.</p>
+        </div>
+        <span class="ptag">Magnify Principle</span><span class="ptag">Maintain Principle</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 6", icon:"🪑",
+    title:"The Annoying Law of the Universe",
+    hook:"You can only have what you already have — internally.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> This chapter highlights a profound paradox: "You can only have what you already have." Manifestation starts from the inside. Wanting something signals its absence (lack), which the universe then reinforces. Expecting or needing outcomes actually pushes them away — because the needing frequency IS the not-having frequency.</p>
+        <p>Knowledge introduces the metaphor of two chairs: the <strong>Wanting Chair</strong> and the <strong>Having Chair</strong>. If you sit in the "wanting" chair, you admit you don't have it — so you stay stuck. To get what you desire, you must vibrate as though you already have it. You must occupy the "having" chair internally, even before the outer world confirms it.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone who desperately wants love broadcasts the frequency of lovelessness. Every action, every thought, every prayer reinforces "I don't have love." The universe — which is only a mirror — gives them more lovelessness. The shift occurs when they stop wanting love and start being the embodiment of love.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>"The only way to have your desired reality is to give it to yourself internally first." Transforming yourself emotionally and mentally — embodying the having — is the cause that produces the effect you want. Believing you already have it internally collapses the gap between desire and manifestation.</p>
+        </div>
+        <span class="ptag">Wanting vs Having Chair</span><span class="ptag">Internal First</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 7", icon:"⛅",
+    title:"On Earth as it is in Heaven",
+    hook:"Heaven is not a destination. It is an internal state you must inhabit first.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Knowledge explains that "heaven" is a state of consciousness, not a place. True manifesting requires living in that heaven-like state: inner peace, unity, and absence of need. He quotes scripture — "the kingdom of God is within you" — to stress that heaven means a complete internal alignment.</p>
+        <p>Conversely, "hell" is living by ego and fear — feeling separate, needy, and reactive. Everyone oscillates between heaven and hell consciousness daily. Only by nurturing a heavenly inner state (love, acceptance, wholeness) can you attract heavenly outcomes. If you remain in "survival mode" — low awareness, fear, scarcity — your external world will reflect exactly that.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Two people face the same job loss. One descends into hell consciousness — fear, bitterness, resentment, victim thinking. Their outer reality compounds in misery. The other uses the same event to go inward, find peace, and realign — heaven consciousness. New doors open within weeks.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>To experience your own version of heaven on Earth, be that heaven within first. Your outer world is always a projection of your inner state. Stop waiting for external conditions to improve before feeling good. Feel the heaven first — then watch the external world catch up.</p>
+        </div>
+        <span class="ptag">Heaven Consciousness</span><span class="ptag">Inner Peace First</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 8", icon:"🎮",
+    title:"You Can't Outrun Your Frequency",
+    hook:"Changing only your actions without changing your inner state is rearranging smoke.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Knowledge describes three planes of existence — physical, mental, and spiritual — and insists that real manifestation requires harmony across all three. The physical is the realm of effects; true change must happen on the mental and spiritual planes first.</p>
+        <p>He uses a VR-headset analogy: consciousness filters reality, and what we see is just a projection of our mental templates. Every physical outcome was first an idea or emotion. The spiritual plane "bakes" mental intentions into reality. Therefore, aligning mind, body, and spirit to your goal is not optional — it is the mechanism.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone leaves a toxic job, moves to a new city, and starts fresh — but within a year, the new job has become toxic, the new city feels wrong, and the same patterns have reproduced. Why? Because they changed the physical plane (actions, environment) without changing the mental/spiritual planes (inner frequency). They brought the same broadcast to a new address.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>You cannot outrun your frequency. No matter how far you run, move, or change externally, your frequency follows you and recreates the same circumstances. Only by adjusting your inner state — mental and spiritual alignment — will the outer world permanently follow.</p>
+        </div>
+        <span class="ptag">3-Plane Alignment</span><span class="ptag">Inner Over Outer</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 9", icon:"🗝️",
+    title:"Redefining Manifestation",
+    hook:"Real manifestation is not about force-changing reality. It is about becoming the cause of your effect.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Knowledge debunks common myths about manifestation. He introduces seven keys of frequency that must all align simultaneously: <strong>beliefs, conviction, perception, charged thoughts, focus, reactions, and expectations</strong>. Your current life reflects exactly how these seven keys are currently set.</p>
+        <p>Changing only one key — e.g. just thinking positively — while the others remain unchanged causes subconscious contradictions to immediately undermine progress. The crucial insight is that <strong>emotion is the key</strong>: only emotionally charged thoughts become reality. Unemotional affirmations are just words. The universe reads emotion, not language.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone repeats "I am wealthy" every morning but feels nothing when they say it — no conviction, no feeling, no genuine belief. Their subconscious, reading the absence of emotion, ignores the words entirely. Meanwhile, someone who rarely uses affirmations but feels genuine certainty and excitement about their financial direction — with emotionally charged focus — manifests rapidly.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>Manifestation is the materialisation of frequency. Align all seven inner keys. Flood your goals with genuine feeling — joy, love, certainty, gratitude. Everything you give your emotionally charged attention to becomes your unique "order" to the universe. Only then does manifestation occur.</p>
+        </div>
+        <span class="ptag">7 Keys of Frequency</span><span class="ptag">Emotion as Language</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 10", icon:"🦋",
+    title:"The Desire of Your Desires",
+    hook:"You don't actually want the thing — you want the feeling it would give you.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> This paradoxical chapter teaches detachment. You must "just let go" of the surface desire — not because desire is wrong, but because you don't actually want the thing itself; you want the internal state (feeling) you believe it would bring. All desires boil down to a frequency you feel is currently missing.</p>
+        <p>Knowledge uses an elegant analogy: it is easier to attract a butterfly than to chase it. If you chase a goal from a place of desperation (sitting in the "wanting" chair), you stay stuck. Instead, shift into the "having" chair — mentally and emotionally inhabit the state your desire would give you. Create that internal state first. Then the external desire can arrive naturally.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone says they want more money — but what they actually want is the feeling of security and freedom that money represents. Someone else says they want a relationship — but what they want is the feeling of being loved and chosen. Once they generate that feeling internally (through gratitude, self-love, certainty), the outer circumstance organises itself to match.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>"To the universe, wanting something is an indication that you don't have it." Drop the chase. Identify the feeling your desire would bring, then cultivate that feeling now from within. Become what you want to attract, and the external form will follow naturally.</p>
+        </div>
+        <span class="ptag">Detachment Principle</span><span class="ptag">Feeling First</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 11", icon:"🧭",
+    title:"How to Know Exactly What Action to Take",
+    hook:"Your higher self already knows the path. Your job is to raise your frequency to receive it.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> The chapter focuses on intuition as the primary navigation system. Knowledge asserts that your higher self already "knows" the path — the blueprint for your goal already exists within you, drawn from the parallel version of yourself who is already living your dream.</p>
+        <p>He introduces a crucial chain: <strong>Frequency → Intuition → Nudges → Action → Reality</strong>. Taking action at odds with your frequency is futile. He compares it to flies banging on a closed window — frantic action, no result. The right action can only come from aligned frequency. The wrong frequency, even with the right action, always leads to the wrong reality.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone who vibrates at a poverty frequency will receive poverty-based intuition, take poverty-based actions, and produce poverty-based results — even if they work extremely hard. An impoverished person's "hustle" reinforces their poverty because the frequency driving the actions is scarcity. When they shift frequency first, the same actions produce completely different results.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>Quiet the ego (which acts randomly from fear). Tune into your aligned frequency. Let intuitive guidance — subtle mental nudges — direct your actions. When your inner state matches your goal, you will instinctively know the right moves. The instructions already exist within you.</p>
+        </div>
+        <span class="ptag">Intuition Chain</span><span class="ptag">Aligned Action</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 12", icon:"🪞",
+    title:"The Perception–Projection Loop",
+    hook:"You don't see the world as it is. You see the world as you are.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> This chapter describes how our perception creates our reality. We don't perceive an objective world — we perceive through inner filters built from our beliefs and emotional states, and then project that filtered version as "reality." This creates a closed loop: we perceive, we project, and the projection confirms the perception.</p>
+        <p>If you look for failure, you find failure. If you look for scarcity, you get scarcity. The loop can be broken only by consciously adopting the perspective of your ideal self — seeing the world through the eyes of someone who already has what you desire.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone who "knows" they can never find a good partner will unconsciously sabotage every promising date — through defensive behaviour, negative assumptions, and self-fulfilling actions — thereby confirming their original belief. The loop continues until the perception is deliberately changed.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>"Control your perception or the world will control it." Ask constantly: "If I were already living my desired reality, how would I interpret this situation?" This reframes events through the lens of your goal. By consistently viewing circumstances through that higher perspective, you shift your projection until reality aligns.</p>
+        </div>
+        <span class="ptag">Perception Loop</span><span class="ptag">Reframing Practice</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 13", icon:"🕸️",
+    title:"You Don't Have Beliefs — They Have You",
+    hook:"Beliefs are living entities that demand your energy and seek to confirm themselves.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Knowledge flips the conventional view of beliefs. We think we choose our beliefs — but in reality, our beliefs own us. They are like living entities that demand energy, resist examination, and constantly seek to confirm themselves through our perception and behaviour.</p>
+        <p>Until we recognise this, we remain trapped by subconscious ideas masquerading as truth. Awareness of one's beliefs is crucial: rather than mindlessly accepting inherited beliefs, we must notice where our mind treats certain things as "obvious truth" and be willing to examine and release those that do not serve our desired frequency.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          A person raised in a household where "you have to work hard to get anywhere" operates under this belief as an unquestioned law of nature. They cannot imagine ease or flow — even when it is presented to them. The belief owns them so completely that they sabotage effortless opportunities to confirm the "hard work is the only way" narrative.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>By detaching from old beliefs, you release their grip on your frequency and open up new possibilities. The practice: catch yourself saying "I know that..." or "obviously..." — these are the signatures of beliefs that have you. Question them. Who taught you this? Is it true? Does it serve your desired reality?</p>
+        </div>
+        <span class="ptag">Belief Archaeology</span><span class="ptag">Detach & Question</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 14", icon:"⛏️",
+    title:"There's No Creation Without Conviction",
+    hook:"Belief is weak. Conviction — bone-deep knowing — is the fuel of manifestation.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> This chapter distinguishes between weak belief and powerful conviction. Most people expect the worst — conditioned by society's messaging of scarcity and limitation. Knowledge advises "living in your own bubble": filtering out limiting messages and mentally inhabiting your goal with the certainty of someone who knows it is already done.</p>
+        <p>He draws on the biblical story of Elisha — who told kings to dig ditches before any rain had fallen — to illustrate that acting "in faith" before evidence arrives can bring about extraordinary results. Behave as if your goal is already coming true. Prepare for it now. This faith-based expectancy collapses the gap between desire and reality.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone waiting to "feel ready" before starting their business keeps waiting indefinitely. Someone with conviction begins building, preparing, investing in infrastructure — all before a single client has appeared — because they know it is coming. The universe sees the conviction and responds to the frequency of certainty, not hesitation.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>Strong conviction ("I know I deserve this, I know it is coming") is the fuel that makes manifestation unstoppable. Dig the ditches before the rain falls. Act from certainty, not from proof. The universe responds to your conviction level, not your evidence level.</p>
+        </div>
+        <span class="ptag">Conviction Practice</span><span class="ptag">Dig the Ditches</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 15", icon:"❤️‍🔥",
+    title:"The Law of Emotion",
+    hook:"Emotion is not what happens to you — it is the language your subconscious speaks to reality.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Emotion is the powerhouse of manifestation. Knowledge begins the chapter with a hadith: "If the heart is good, the whole body is good." He argues that controlling emotion equals controlling reality. Emotions drive our energy; changing your feelings changes your vibrational state and therefore your reality.</p>
+        <p>He dispels the myth that emotions are uncontrollable — that mindset keeps people powerless. In fact, emotions are your domain. Emotions "glue" us to outcomes: feeling anger or fear constantly will cement negative conditions, whereas positive emotions will anchor positive experiences. <strong>Emotion = Frequency = Reality.</strong> Affirmations or thoughts without genuine feeling get nowhere.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone who mechanically repeats "I am rich" while feeling anxious and insecure is actually cementing the anxiety frequency — the emotion overpowers the words. Someone who rarely uses explicit affirmations but consistently generates genuine feelings of abundance, gratitude, and excitement in their body manifests financial improvement rapidly.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>Master your feelings — through mindfulness, reframing, and deliberate cultivation — so you can deliberately shift your vibration. Infuse your goals with genuine positive emotion (joy, gratitude, love, certainty). Emotion is the language the subconscious uses to place orders with the universe. Without it, nothing manifests.</p>
+        </div>
+        <span class="ptag">Emotion = Frequency</span><span class="ptag">Emotional Mastery</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 16", icon:"🦅",
+    title:"Transcend the Collective",
+    hook:"Society has its own frequency — and it will pull you back to average unless you deliberately break free.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Knowledge emphasises breaking free from society's "herd mind." Society has its own collective frequency — a hive-mind of beliefs that favours comfort, sameness, and limitation. Conforming means staying within the collective energetic equilibrium. To create an exceptional reality, you must shed societal "truths."</p>
+        <p>Holding onto collective ideas — "rich people are evil," "I'm too old to change," "success requires suffering" — programs your frequency to self-sabotage. Only by being a mental anomaly, willing to look foolish or "different" by others' standards, will your reality differ from the collective norm.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone from a working-class background who starts achieving success encounters a powerful social force pulling them back — friends who feel uncomfortable, family who interpret success as "putting on airs," cultural messaging that frames ambition as greed. Unless they consciously transcend the collective frequency, this social pressure will erode their own signal.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>Transcend popular beliefs. Adopt the perspectives that serve your goals, regardless of what "everyone knows." Detach from the collective. "Making the irrational realistic" is the hallmark of every person who has ever created an extraordinary reality. Live by your own frequency — not the crowd's.</p>
+        </div>
+        <span class="ptag">Collective Detachment</span><span class="ptag">Anomaly Mindset</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 17", icon:"🔦",
+    title:"Attention Beats Intention",
+    hook:"Like sunlight concentrated to start a fire — focused attention is the most powerful creative force.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> The power of focused attention is the theme. Everything you habitually concentrate on gains momentum and becomes reality. "Where your attention goes, your vibration flows." Obsessing over problems will attract more problems. Keeping attention on your goal and resources causes them to flow in.</p>
+        <p>Knowledge teaches that "Attention is alignment" — reality mirrors what your mind most consistently affirms. It is more powerful to attend to a positive outcome than merely to want it. Attention with emotional intensity is the steering wheel of manifestation. It is what directs the energy.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Focusing on job insecurity will magnetise more instability. Conversely, someone who maintains their attention on their vision — the solved problem, the thriving business, the ideal health — consistently, even when the current reality contradicts it, gradually bends their reality toward that vision.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>Notice constantly where your attention is drifting — to fear, doubt, lack? Consciously redirect it. Use concentrated attention with emotional intensity as your primary manifesting tool. What you feed grows. What you starve shrinks. Attention is the most powerful thing you can give or withhold.</p>
+        </div>
+        <span class="ptag">Attention Audit</span><span class="ptag">Focus Discipline</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 18", icon:"😈",
+    title:"Prepare to Be Bad",
+    hook:"You cannot create an extraordinary reality by playing by ordinary rules.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Being a "good person" as society defines it — always pleasing others, excessive humility, conformity — can actively keep you stuck. These traits are part of the "social contract" learned in childhood: conform and receive approval; stand out and face punishment. Materialising extraordinary success often means breaking those norms.</p>
+        <p>Excelling beyond one's group can make others uncomfortable, causing many to self-sabotage to maintain social harmony and approval. The chapter encourages an "unapologetic" mindset: accept that stepping outside the collective bubble will label you "bad" or "different." Prioritise your frequency over others' approval.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone offered an extraordinary opportunity that requires saying no to existing social obligations, disappointing friends, and being temporarily misunderstood. The "good" person says yes to everyone and no to their own growth. The frequency master says yes to their vision and accepts the temporary social cost.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>You must be willing to pay the social price for being exceptional. Say no to requests that drain your energy. Challenge common beliefs even when it creates friction. Prioritise your frequency over approval. You cannot create an extraordinary reality by being ordinary. Being "bad" in the eyes of those who limit you is often the most loving thing you can do for yourself.</p>
+        </div>
+        <span class="ptag">Unapologetic Mindset</span><span class="ptag">Approval Detachment</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 19", icon:"🏔️",
+    title:"The Energetic Ceiling on Your Reality",
+    hook:"Your self-worth is a hard ceiling. The universe cannot give you what you don't believe you deserve.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Self-worth sets your manifesting limit. No matter how hard you work or how clearly you intend, if deep down you feel undeserving, you will never reach your goal. The universe can only give you what you emotionally, subconsciously know you deserve — "knowing" here means felt experience, not intellectual belief.</p>
+        <p>Someone may intellectually believe they deserve wealth, but if their subconscious is imprinted with intense past poverty, they only emotionally "know" poverty — and that is what manifests. The solution: upgrade your self-worth ceiling through vivid imagination. Since the mind cannot distinguish imagination from reality, vivid positive visualisations imprint the subconscious with new felt experiences of worth.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          Someone wins a large sum of money or gets a big promotion but within months finds themselves back at the same financial level or feels deeply uncomfortable in the new role. The external reality changed but the internal self-worth ceiling pulled them back down — the frequency ceiling that says "this is not who I am."
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>Cultivate genuine internal worth — through gratitude, self-affirmation with feeling, recalling past accomplishments, and vivid positive visualisation — so the ceiling on what you can achieve is progressively raised. Never tie your self-worth to others' opinions. If their approval can raise or lower your worth, they control your reality.</p>
+        </div>
+        <span class="ptag">Self-Worth Upgrade</span><span class="ptag">Ceiling Breaking</span>
+      </div>
+    `
+  },
+  {
+    num:"Ch 20", icon:"🔧",
+    title:"What to Do When Reality Goes Wrong",
+    hook:"Disruptions are not punishments — they are signals pointing at a frequency that needs recalibration.",
+    content:`
+      <div class="sum-body">
+        <p><strong>Core Teaching:</strong> Throughout the book, disruptions in life are consistently interpreted as signals to reassess one's frequency — not as random misfortune, punishment, or proof of failure. When things go awry, the consistent teaching is: turn inward and revisit the fundamentals.</p>
+        <p>Check your frequency: Are old fears or beliefs creeping back? Has the self-worth ceiling resurfaced? Has attention drifted back to problems? Has the "wanting chair" crept back in? Reapply the principles — sacrifice outdated patterns, refocus attention, realign emotion, rebuild conviction, and raise self-worth. Misfortune is not defeat. It is feedback about which inner setting to adjust.</p>
+        <div class="sum-example">
+          <strong>Example from the Book</strong>
+          A business deal falls through. The frequency master does not interpret this as failure or bad luck. They get curious: "What old frequency attracted this? What am I broadcasting that created this outcome?" They treat it as a precise diagnostic tool. Within days of honest inner examination, they identify a subconscious fear of success that was creating subtle self-sabotage.
+        </div>
+        <div class="sum-key">
+          <span class="sum-key-label">Key Takeaway</span>
+          <p>When reality goes wrong, the 7-step process: (1) Acknowledge the disruption without drama. (2) Name the emotion honestly. (3) Identify the old frequency or belief that surfaced. (4) Shift attention to the desired state. (5) Reframe the perception. (6) Reset the emotion through body practices. (7) Reconfirm conviction and take one aligned action. Treat every setback as a precision tool for self-knowledge.</p>
+        </div>
+        <span class="ptag">Disruption Protocol</span><span class="ptag">Frequency Diagnostic</span>
+      </div>
+    `
+  }
+];
+
+/* ── DEEP DIVE CHAPTERS (condensed cards) ─────────────────────── */
+const deepChapters = [
+  {num:"Ch 01",name:"The Nature of Reality",icon:"🌌",tagline:"Reality is not fixed — it is a frequency broadcast",preview:"You are the broadcaster, not the receiver. The universe doesn't happen to you — it responds to you.",body:`<p><strong>Core Teaching:</strong> The universe is a vast field of vibrating energy. What you call "reality" is simply the version of that field matching your current frequency. Nero dismantles the idea that reality happens to you and replaces it with a radical truth: you are the broadcaster, not the receiver.</p><div class="modal-sh">The Observer Effect</div><p>Quantum physics shows that particles exist in superposition — infinite potential — until observed. The act of observation collapses possibility into a single experienced reality. <em>Your consciousness is the observer.</em> The reality you perceive is the one your frequency selects from infinite possibilities.</p><div class="eg-box"><strong>Example</strong>Two people walk into the same job interview. One broadcasts fear and self-doubt (~100 Hz). The other broadcasts confidence and certainty (~500 Hz). Both are in the same room but inhabiting entirely different realities. The universe collapses different potential for each — not by luck, but by frequency match.</div><p><strong>Key Principles:</strong> Reality is malleable. Consciousness precedes matter. You cannot change reality by fighting it — only by shifting your broadcast.</p>`},
+  {num:"Ch 06",name:"The Annoying Law",icon:"🪑",tagline:"You can only have what you already have — internally",preview:"The Wanting Chair vs the Having Chair. Wanting signals absence. Having signals abundance. You must sit in Having first.",body:`<p>The most counter-intuitive law: wanting something signals you don't have it — and the universe responds to that signal by giving you more of the not-having. The only way to manifest is to embody the having state internally before external confirmation arrives. This is the core paradox of all manifestation work.</p><div class="eg-box"><strong>Example</strong>Someone who desperately wants love broadcasts the frequency of lovelessness. Every thought, every prayer, every action reinforces "I don't have love." The universe mirrors back: more absence. The shift occurs when they stop wanting love and start being love — expressing love to everything around them.</div>`},
+  {num:"Ch 09",name:"Redefining Manifestation",icon:"🗝️",tagline:"Align all 7 keys. Flood with feeling. Only then does it work.",preview:"Seven keys must align: beliefs, conviction, perception, charged thoughts, focus, reactions, expectations. Miss one and subconscious contradictions undermine everything.",body:`<p>Real manifestation requires all seven frequency keys to align simultaneously. Changing only one creates internal contradictions that the subconscious immediately exploits to maintain the old pattern. The critical insight: <strong>emotion is the language the subconscious uses</strong>. Without genuine emotionally-charged thought, nothing manifests.</p><div class="eg-box"><strong>Example</strong>Someone repeats "I am wealthy" mechanically with no feeling. The subconscious ignores it — no emotion, no signal. Meanwhile, someone rarely using affirmations but feeling genuine excitement and certainty about their financial direction manifests rapidly. Emotion is not optional. It is the entire mechanism.</div>`},
+  {num:"Ch 11",name:"Intuition & Aligned Action",icon:"🧭",tagline:"Frequency → Intuition → Nudges → Action → Reality",preview:"Your higher self already knows the exact path. The only task is raising your frequency enough to receive that guidance.",body:`<p>The correct sequence is never "work harder" — it is "align deeper." Your higher self already holds the blueprint. Intuitive nudges are the universe's delivery system for that blueprint. But you can only receive them at matching frequency. The wrong frequency, even with extraordinary effort, always leads to the wrong reality.</p><div class="eg-box"><strong>Example</strong>Priya spends months planning her business from fear — nothing moves. After a morning meditation, she feels a clear impulse to message an old colleague. Logic says it makes no sense. She follows it. The colleague turns out to be building the exact platform she needs. That "random" impulse was aligned frequency delivering its instruction.</div>`},
+  {num:"Ch 15",name:"The Law of Emotion",icon:"❤️‍🔥",tagline:"Emotion = Frequency = Reality. The subconscious only speaks in feeling.",preview:"Affirmations without feeling are just noise. The universe reads emotion, not language. Master your emotional state and you master your reality.",body:`<p>Emotion is the powerhouse of manifestation. It is the language the subconscious mind uses to communicate with the quantum field. All 20 chapters in the book ultimately point to this: cultivate the emotions of your desired reality now, from within, and reality must reorganise itself to match. There is no shortcut that bypasses this principle.</p><div class="eg-box"><strong>Example</strong>Two people say "I am rich." Person A feels anxious and empty when they say it. Person B feels genuine warmth and certainty. The universe hears Person B — exclusively. The emotion is the frequency. The words are irrelevant without it.</div>`},
+  {num:"Ch 19",name:"The Energetic Ceiling",icon:"🏔️",tagline:"Self-worth is the hard ceiling. The universe gives you what you know you deserve.",preview:"No intention, strategy, or hard work can permanently exceed your internal self-worth ceiling. This must be upgraded from the inside.",body:`<p>This is perhaps the most practically important chapter for understanding why people plateau. Every person has an internal "energetic ceiling" — the level of reality their subconscious believes they genuinely deserve. External successes that exceed this ceiling will be unconsciously sabotaged until the ceiling is raised. The work is always internal, always emotional, always about raising the felt sense of deserving.</p><div class="eg-box"><strong>Example</strong>Someone wins a large sum or gets promoted beyond their self-worth ceiling. Within months they are back at the same level — through bad investments, career mistakes, or inexplicable self-sabotage. The external reality was temporarily pulled above the ceiling, but the ceiling pulled it back. The solution: raise the ceiling first, through vivid felt imagination and self-worth practices.</div>`}
+];
+
+/* ── FREQUENCY LEVELS ─────────────────────────────────────────── */
+const freqData=[
+  {name:"Enlightenment",hz:"700–1000",color:"#ffffff",desc:"Pure consciousness, unity, boundless peace",e:"✨"},
+  {name:"Peace",hz:"600",color:"#c9a84c",desc:"Complete stillness, all is perfect, no resistance",e:"🕊️"},
+  {name:"Joy",hz:"540",color:"#f7aef8",desc:"Radiant aliveness, delight, effortless flow",e:"☀️"},
+  {name:"Love",hz:"500",color:"#ff8fab",desc:"Unconditional acceptance, warmth, deep connection",e:"💛"},
+  {name:"Reason",hz:"400",color:"#4ecdc4",desc:"Logic, understanding, intellectual clarity",e:"🔬"},
+  {name:"Acceptance",hz:"350",color:"#74c0fc",desc:"Life is good, harmony, things work out",e:"🌿"},
+  {name:"Willingness",hz:"310",color:"#a9e34b",desc:"Optimistic, open, ready to grow",e:"🌱"},
+  {name:"Neutrality",hz:"250",color:"#ced4da",desc:"Detached, okay with life, functional",e:"⚖️"},
+  {name:"Courage",hz:"200",color:"#ffa94d",desc:"The threshold — ability to act despite fear",e:"⚡"},
+  {name:"Pride",hz:"175",color:"#e67700",desc:"Ego-driven, defensive, superiority mask",e:"🦚"},
+  {name:"Anger",hz:"150",color:"#ff6b6b",desc:"Resentment, blame, righteous indignation",e:"🔥"},
+  {name:"Desire",hz:"125",color:"#cc5de8",desc:"Craving, wanting, addiction, unfulfilled hunger",e:"🌀"},
+  {name:"Fear",hz:"100",color:"#845ef7",desc:"Anxiety, worry, contraction, threat everywhere",e:"😰"},
+  {name:"Grief",hz:"75",color:"#339af0",desc:"Loss, sadness, depression, mourning",e:"💧"},
+  {name:"Apathy",hz:"50",color:"#495057",desc:"Hopelessness, numbness, why bother",e:"🌫️"},
+  {name:"Shame",hz:"20",color:"#2c2a4a",desc:"I am bad/wrong, self-hatred, the lowest frequency",e:"🕳️"}
+];
+
+/* ── SYMPTOMS ─────────────────────────────────────────────────── */
+const sympData=[
+  {i:"😰",l:"Chronic anxiety"},{i:"💸",l:"Money always disappears"},
+  {i:"💔",l:"Relationship struggles"},{i:"😴",l:"Constant exhaustion"},
+  {i:"🔁",l:"Repeating patterns"},{i:"🚧",l:"Progress always blocked"},
+  {i:"😡",l:"Frequent irritability"},{i:"🌫️",l:"Feeling numb or empty"},
+  {i:"😔",l:"Low self-worth"},{i:"🏃",l:"Chronic overthinking"},
+  {i:"🎭",l:"People pleasing"},{i:"🔮",l:"Disconnected from purpose"},
+  {i:"😩",l:"Overwhelming burden"},{i:"🌪️",l:"Life feels out of control"},
+  {i:"🧊",l:"Emotional numbness"},{i:"🔒",l:"Completely stuck"}
+];
+
+/* ── PRESCRIPTIONS ────────────────────────────────────────────── */
+const rxData={
+  high:{title:"Amplify & Expand — You Are Close to Your Peak",steps:[
+    {t:"Protect Heart Coherence",d:"You are vibrating high — the greatest risk is unconscious leakage. Practice 10-min heart coherence breathing morning and evening. Guard this state fiercely."},
+    {t:"Quantum Jump to the Next Level",d:"Use parallel self meditation. Identify the next version of your desired reality and begin fully embodying that identity. You have the frequency to bridge the gap right now."},
+    {t:"Service Amplification",d:"At high frequencies, the fastest elevator up is genuine contribution. Find one way today to use your elevated state to lift someone else. This multiplies your field exponentially."},
+    {t:"Radical Environment Audit",d:"Curate your inputs with precision. Even at 500 Hz, unnecessary exposure to collective low-frequency media or people creates leakage. Protect your broadcast aggressively."},
+    {t:"Anchor and Record",d:"Journal your current state in full sensory detail. These notes become frequency anchors — a map back to this state when you inevitably dip. Record evidence of what created this."}
+  ]},
+  mid:{title:"Cross the 200 Hz Threshold — Courage is One Step Away",steps:[
+    {t:"Name the Block Precisely",d:"Ask: 'What would I have to believe for this pattern to keep happening?' Write every answer without editing. This is belief archaeology. Name the specific block that is holding you below courage."},
+    {t:"Immediate Body Reset",d:"Cold shower (2 min minimum) followed by 10 min box breathing (4-4-4-4). This forces a nervous system reset and creates a biochemical opening for higher frequency to anchor."},
+    {t:"Frequency Anchor Activation",d:"Recall the most vivid moment you ever felt completely powerful and alive. Re-enter it in full sensory detail — see, hear, feel it — for 5 minutes. Your nervous system cannot distinguish past from present. Use this."},
+    {t:"The One Courage Act",d:"Courage (200 Hz) is the critical threshold. Identify one action you have been avoiding out of fear. Take it today — however small. Every genuine act of courage permanently elevates your base frequency."},
+    {t:"Environment Upgrade",d:"Spend 30 minutes in nature or intentional time with someone you deeply respect. Environmental frequency is contagious. Your field absorbs the frequencies around it constantly."}
+  ]},
+  low:{title:"Emergency Frequency Recovery — Start Here, Start Now",steps:[
+    {t:"Body First — Stop the Spiral",d:"The mind cannot think its way out from shame, grief, or fear. Start with the body only: both feet flat on the floor, 5 slow belly breaths. You are physically safe. This is the only truth you need right now."},
+    {t:"Allow — Do Not Resist",d:"Suppressed emotion becomes a permanent frequency block. Allow the feeling fully. Observe without becoming it: 'I notice I feel grief' — not 'I AM grief.' This single shift begins dissolving the block."},
+    {t:"Somatic Discharge",d:"Shake your entire body for 3 minutes, or do 20 jumping jacks, or scream into a pillow. This physically discharges stored low-frequency cellular energy — the same way animals naturally reset after stress."},
+    {t:"One Genuine Gratitude",d:"Not a forced list — find ONE thing you genuinely appreciate right now. A breath. The warmth of sunlight. A glass of clean water. Real gratitude (not performed) instantly elevates frequency. One is enough to begin."},
+    {t:"Identity Anchor",d:"Speak aloud or read: 'I am a creator. I have overcome before. This is temporary weather — not my permanent forecast. My frequency dip is not my identity.' Say it slowly. Mean it."},
+    {t:"Sleep Programming",d:"Tonight as you fall asleep — in the theta window — hold one clear, calm intention for tomorrow morning. Do not catastrophise. Plant one seed. The subconscious will work on it through the night."}
+  ]}
+};
+
+/* ── FRAMEWORK TABS ──────────────────────────────────────────── */
+const fwData=[
+  {tab:"5-Step Reset",html:`<div class="sc-card"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.65rem;color:var(--gold-light);margin-bottom:8px;font-weight:600">The 5-Step Frequency Reset</h3><p style="color:var(--text-dim);font-size:.97rem;margin-bottom:26px">Use whenever your frequency drops below your set point. Based on Chapters 2, 5, and 15.</p><div class="sc-steps"><div class="sc-step"><div class="sc-n">1</div><div><strong>Notice:</strong> Acknowledge honestly — "my frequency has dropped." No judgment. Pure awareness is itself power.</div></div><div class="sc-step"><div class="sc-n">2</div><div><strong>Name it:</strong> Identify the exact emotion on the scale. Grief? Fear? Anger? Named emotions immediately lose some of their power over you.</div></div><div class="sc-step"><div class="sc-n">3</div><div><strong>Accept it:</strong> Don't fight it — that creates more of it. Breathe fully into it. "This is where I am right now. It is safe to feel this."</div></div><div class="sc-step"><div class="sc-n">4</div><div><strong>Bridge it:</strong> Reach for an emotion ONE notch higher on the scale — authentically. Grief → Willingness. Fear → Anger. Anger → Neutrality. Climb one level at a time.</div></div><div class="sc-step"><div class="sc-n">5</div><div><strong>Anchor it:</strong> Lock the new feeling with a physical gesture, a memory, or a statement. Practice until it becomes the new baseline.</div></div></div></div>`},
+  {tab:"Morning Protocol",html:`<div class="sc-card"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.65rem;color:var(--gold-light);margin-bottom:8px;font-weight:600">The Master Morning Protocol</h3><p style="color:var(--text-dim);font-size:.97rem;margin-bottom:26px">The first 30 minutes set your broadcast frequency for the entire day. Guard this window fiercely. Based on Chapters 3, 6, 9, and 14.</p><div class="sc-steps"><div class="sc-step"><div class="sc-n">1</div><div><strong>0–3 min — No phone.</strong> Your subconscious is still in theta. Hand that window to no one. Stay in your own field.</div></div><div class="sc-step"><div class="sc-n">2</div><div><strong>3–8 min — Identity Declaration.</strong> Speak who you ARE (not want to be): "I am a creator. I am abundant. I am healthy." Feel each word in your body.</div></div><div class="sc-step"><div class="sc-n">3</div><div><strong>8–18 min — Future Memory Meditation.</strong> Close your eyes. Enter the feeling of your desired reality already fulfilled. Breathe as that version of you for 10 full minutes.</div></div><div class="sc-step"><div class="sc-n">4</div><div><strong>18–25 min — Inspired Action.</strong> Ask: "What one action today is most aligned with my desired reality?" Take it before reactive tasks.</div></div><div class="sc-step"><div class="sc-n">5</div><div><strong>25–30 min — Gratitude Anchor.</strong> Write 3 genuine gratitudes for what you already have. This locks you into abundance frequency.</div></div></div></div>`},
+  {tab:"Evening Reset",html:`<div class="sc-card"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.65rem;color:var(--gold-light);margin-bottom:8px;font-weight:600">The Evening Frequency Harvest</h3><p style="color:var(--text-dim);font-size:.97rem;margin-bottom:26px">Release the day's static and seed tomorrow's field. The sleep theta window is your most powerful reprogramming access point. Based on Chapters 3, 7, and 13.</p><div class="sc-steps"><div class="sc-step"><div class="sc-n">1</div><div><strong>Frequency Review:</strong> What was my dominant frequency today? Where did I drop? What triggered it? Data collection — no judgment.</div></div><div class="sc-step"><div class="sc-n">2</div><div><strong>Harvest the Gold:</strong> What moments today felt alive, grateful, aligned? Log them. These are your evidence bank and anchor library.</div></div><div class="sc-step"><div class="sc-n">3</div><div><strong>Release:</strong> Write anything you're holding — frustrations, resentments. Then: "I release this from my field. It has no power in tomorrow's broadcast."</div></div><div class="sc-step"><div class="sc-n">4</div><div><strong>Sleep Seed:</strong> As you close your eyes, hold one clear felt vision of your desired reality. Not a list — just one image, one feeling. The last thought before sleep imprints directly into the subconscious.</div></div></div></div>`},
+  {tab:"Block Clearing",html:`<div class="sc-card"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.65rem;color:var(--gold-light);margin-bottom:8px;font-weight:600">Deep Block Clearing Protocol</h3><p style="color:var(--text-dim);font-size:.97rem;margin-bottom:26px">For stubborn recurring patterns that won't clear with the standard reset. Based on Chapters 1, 4, 13, and 19.</p><div class="sc-steps"><div class="sc-step"><div class="sc-n">1</div><div><strong>Identify the Pattern:</strong> What recurring situation keeps appearing? Write it. Every repetition points at an unresolved belief broadcasting the same signal.</div></div><div class="sc-step"><div class="sc-n">2</div><div><strong>Trace to Origin:</strong> "When did I first feel this? What did I decide about myself?" Travel back to the earliest version. This is your origin wound.</div></div><div class="sc-step"><div class="sc-n">3</div><div><strong>Rewrite the Scene:</strong> In meditation, return to that origin moment as your adult self. Bring love and wisdom to the younger you. Rewrite what was said. Install the new belief.</div></div><div class="sc-step"><div class="sc-n">4</div><div><strong>Body Discharge:</strong> Shake, breathe deeply, or move vigorously. The body must physically release the stored pattern — the mind alone cannot do this.</div></div><div class="sc-step"><div class="sc-n">5</div><div><strong>21-Day Install:</strong> Write your new belief in first person, present tense. Repeat it at the theta gateway (falling asleep) for 21 consecutive nights — the neurological minimum for a new default pattern.</div></div></div></div>`},
+  {tab:"When Reality Breaks",html:`<div class="sc-card"><h3 style="font-family:'Cormorant Garamond',serif;font-size:1.65rem;color:var(--gold-light);margin-bottom:8px;font-weight:600">When Reality Goes Wrong — The 7-Step Diagnostic</h3><p style="color:var(--text-dim);font-size:.97rem;margin-bottom:26px">From Chapter 20: disruptions are not punishments — they are frequency diagnostic signals. Use this protocol exactly.</p><div class="sc-steps"><div class="sc-step"><div class="sc-n">1</div><div><strong>Acknowledge without drama:</strong> "This has happened. I am not a victim. This is information." No catastrophising.</div></div><div class="sc-step"><div class="sc-n">2</div><div><strong>Name the emotion:</strong> Honestly identify what you are feeling. Name it precisely on the frequency scale.</div></div><div class="sc-step"><div class="sc-n">3</div><div><strong>Identify the old frequency:</strong> Ask: "What old belief or fear surfaced here? What frequency did I broadcast to attract this?"</div></div><div class="sc-step"><div class="sc-n">4</div><div><strong>Shift attention:</strong> Redirect to the desired state. What do you want instead? Place your full attention there.</div></div><div class="sc-step"><div class="sc-n">5</div><div><strong>Reframe perception:</strong> "If I were already in my desired reality, how would I interpret this event?" Write the answer.</div></div><div class="sc-step"><div class="sc-n">6</div><div><strong>Emotional reset:</strong> Body work, heart coherence breathing, or movement to physically reset the nervous system.</div></div><div class="sc-step"><div class="sc-n">7</div><div><strong>One aligned action:</strong> From this recalibrated state, identify and take one inspired action. Not forced — inspired.</div></div></div></div>`}
+];
+
+/* ── SCENARIOS ────────────────────────────────────────────────── */
+const scenData=[
+  {e:"💼",t:"Career Setback — Job Loss or Failed Promotion",p:"Anger, shame, and fear are flooding your system. Your frequency has crashed. Here is the path back.",steps:[
+    {t:"Allow the grief first",d:"Don't bypass this. Sit with the disappointment fully. Suppressing it creates a permanent frequency block per Chapter 1."},
+    {t:"Reframe as redirection",d:"Ask: 'What is this clearing space for?' Chapter 20 teaches that every disruption is a frequency signal, not random punishment."},
+    {t:"Separate identity from event",d:"Your identity is NOT your job title. You remain a creator (Ch 8) regardless of external events. Do not collapse them."},
+    {t:"Future memory rebuild",d:"Visualise yourself 6 months from now, looking back on this moment as the turning point. Feel that perspective NOW (Ch 6)."},
+    {t:"One inspired action",d:"After 48 hours, ask: what one aligned step forward excites me rather than frightens me? Follow that specific impulse (Ch 11)."}
+  ]},
+  {e:"💔",t:"Heartbreak — Relationship Ends or Turns Toxic",p:"Grief, loneliness, or anger is your dominant broadcast. Every action taken from this state deepens the wound.",steps:[
+    {t:"Stop acting from the wound",d:"Every action taken from heartbreak broadcasts the frequency of loss and attracts more of it (Ch 5 — universe magnifies). Pause all major decisions."},
+    {t:"Somatic processing",d:"Heartbreak energy must exit through the body (Ch 8). Breathwork, movement, or crying fully — the mind cannot process this alone."},
+    {t:"Identify the subconscious pattern",d:"Recurring relationship pain reveals a subconscious program (Ch 13). Ask: 'What familiar feeling does this recreate?' Name it. Find its origin."},
+    {t:"Return to self-love frequency",d:"Love (500 Hz) must be generated from within before it can appear without (Ch 6). Become what you seek to attract."},
+    {t:"Set the new frequency intention",d:"Once stable, write clearly what your ideal relationship FEELS like (not looks like). Become that frequency. Trust Ch 11's intuition chain to deliver."}
+  ]},
+  {e:"💰",t:"Financial Crisis — Debt, Scarcity, Money Block",p:"Fear about money drops you to 100 Hz — the exact frequency that repels abundance. Your first job is frequency, not finance.",steps:[
+    {t:"Break the scarcity spiral",d:"You cannot solve a money problem from a fear frequency. The universe is magnifying scarcity (Ch 5). Elevate first, strategise second."},
+    {t:"Real gratitude for what exists",d:"Find what you genuinely have: water, shelter, breath, health. Real gratitude (not forced) begins shifting the 'not enough' signal (Ch 15)."},
+    {t:"Excavate the money belief",d:"Chapter 13: what was said about money in your household? Find the belief that owns your finances. Name it. Challenge it forensically."},
+    {t:"Give something",d:"Even from lack, give something freely — time, knowledge, a compliment. This broadcasts 'I have enough to share' to the quantum field (Ch 7)."},
+    {t:"One inspired financial move",d:"From a calm state, what creative financial action excites rather than panics you? Follow that impulse specifically (Ch 11)."}
+  ]},
+  {e:"😤",t:"Family and Social Conflict — Frequency Contamination",p:"Family or social encounters triggered old patterns. Your frequency dropped sharply. This is the recovery path.",steps:[
+    {t:"Physical distance immediately",d:"Leave the space, even for 10 minutes. You cannot respond from your highest frequency while inside a low-frequency field (Ch 16 — collective frequency)."},
+    {t:"Depersonalise completely",d:"Their behaviour reflects their frequency — it is never about you. Their anger is their broadcast. You don't have to tune in (Ch 12 — projection)."},
+    {t:"Identify your trigger",d:"The intensity of your reaction reveals an unhealed wound (Ch 13). What old belief did this touch? This is data, not failure."},
+    {t:"Frequency bubble before re-entry",d:"5 min heart coherence breathing. Then consciously decide: 'I choose to maintain my broadcast regardless of external interference' (Ch 16)."},
+    {t:"Forgiveness as upgrade",d:"Resentment anchors you to their low frequency (Ch 4 — compound interest of negative emotion). Forgiveness frees you. Write a letter you never send."}
+  ]},
+  {e:"😵",t:"Identity Crisis — Lost, Purposeless, Disconnected",p:"You don't know who you are. This is not failure — it is an initiation that every reality master has passed through.",steps:[
+    {t:"Recognise this as expansion",d:"Chapter 1: the old frequency must dissolve for the new to emerge. You are not falling apart — you are making space. This is a quantum jump initiation."},
+    {t:"Ground in the body",d:"When identity dissolves, the body remains. Feet on earth. Cold water. Slow breath. The body knows it exists even when the mind is confused (Ch 8)."},
+    {t:"Strip to values",d:"What do you care about when no one watches? What have you always cared about regardless of what life told you to be? These are your frequency signatures."},
+    {t:"Follow curiosity without agenda",d:"Purpose is discovered through engaged exploration, not contemplation. Try things. Revisit abandoned passions. Follow curiosity without needing it to 'go anywhere' (Ch 11)."},
+    {t:"The quantum self question",d:"Ask in stillness: 'In the parallel reality where I am fully alive, who am I?' Sit quietly. Let the answer come. Your higher self is already broadcasting this signal."}
+  ]}
+];
+
+/* ── MASTER PRINCIPLES ────────────────────────────────────────── */
+const masterData=[
+  {n:"01",t:"Awareness Before All",d:"You cannot change a frequency you haven't noticed. Check in with your emotional state multiple times daily. Awareness itself begins the shift.",acc:"#c9a84c"},
+  {n:"02",t:"Identity is the Root",d:"Everything flows from identity. You will never create beyond your self-concept. Adopt the identity of the person who already has what you desire.",acc:"#f7aef8"},
+  {n:"03",t:"Sacrifice the Old",d:"To receive the new reality, you must genuinely release the old one. Clinging to familiar pain is paying compound interest to the universe.",acc:"#4ecdc4"},
+  {n:"04",t:"Emotion is the Language",d:"The universe reads emotion, not words. Affirmations without genuine feeling are noise. Infuse every goal with real emotion — joy, certainty, gratitude.",acc:"#7b68ee"},
+  {n:"05",t:"The Wanting Trap",d:"Wanting signals absence. Sit in the Having chair. Embody the internal state of already having what you desire before external confirmation arrives.",acc:"#ffa94d"},
+  {n:"06",t:"Resistance is Information",d:"Every obstacle is a frequency diagnostic. Instead of fighting, ask: what am I broadcasting that created this? The answer is always inside you.",acc:"#ff6b6b"},
+  {n:"07",t:"Conviction Over Belief",d:"Belief is weak. Conviction is bone-deep knowing. Dig the ditches before the rain falls. Act from certainty, not from proof.",acc:"#74c0fc"},
+  {n:"08",t:"Transcend the Collective",d:"Society's herd frequency will pull you back to average. Think differently. Be willing to look irrational. Create your own bubble of belief.",acc:"#a9e34b"},
+  {n:"09",t:"Attention is Everything",d:"Whatever you concentrate on gains momentum. Redirect attention ruthlessly from problems to desired states. Attention IS alignment.",acc:"#cc5de8"},
+  {n:"10",t:"Self-Worth Sets the Ceiling",d:"No intention exceeds your self-worth ceiling. Upgrade it through vivid felt imagination. Never tie your worth to external validation.",acc:"#c9a84c"},
+  {n:"11",t:"Frequency Then Action",d:"The chain is always: Frequency → Intuition → Nudges → Action → Reality. Never skip to action. Always align the frequency first.",acc:"#4ecdc4"},
+  {n:"12",t:"You Are the Broadcast",d:"The deepest truth: you are not separate from the reality you observe. You are the quantum field becoming aware of itself. Stop trying to attract — start allowing.",acc:"#f7aef8"}
+];
+
+/* ════════════════════════════════════════════════
+   BUILD FUNCTIONS
+════════════════════════════════════════════════ */
+
+/* Stars */
+function buildStars(){
+  const sf=document.getElementById('starfield');
+  for(let i=0;i<200;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const sz=Math.random()*2.5+0.5;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;--d:${2+Math.random()*5}s;--o:${0.3+Math.random()*0.8};animation-delay:${Math.random()*7}s`;
+    sf.appendChild(s);
+  }
+}
+
+/* Book Summaries Tabs */
+function buildBookTabs(){
+  const nav=document.getElementById('bookTabsNav');
+  const content=document.getElementById('bookTabsContent');
+  bookSummaries.forEach((s,i)=>{
+    const t=document.createElement('button');
+    t.className='btab'+(i===0?' active':'');
+    t.textContent=s.num;
+    t.title=s.title;
+    t.onclick=()=>{
+      document.querySelectorAll('.btab').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.btab-content').forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+      document.getElementById(`bs${i}`).classList.add('active');
+    };
+    nav.appendChild(t);
+    const p=document.createElement('div');
+    p.className='btab-content'+(i===0?' active':'');
+    p.id=`bs${i}`;
+    p.innerHTML=`
+      <div class="sum-card">
+        <div class="sum-card-header">
+          <span class="sum-card-icon">${s.icon}</span>
+          <div class="sum-card-meta">
+            <div class="sum-card-num">${s.num} of 20</div>
+            <div class="sum-card-title">${s.title}</div>
+            <div class="sum-card-hook">"${s.hook}"</div>
+          </div>
+        </div>
+        ${s.content}
+      </div>
+    `;
+    content.appendChild(p);
+  });
+}
+
+/* Deep Dive Chapter Cards */
+function buildChapters(){
+  const g=document.getElementById('chaptersGrid');
+  deepChapters.forEach((c,i)=>{
+    const d=document.createElement('div');
+    d.className='chapter-card reveal';
+    d.innerHTML=`<span class="ch-icon">${c.icon}</span><div class="ch-num">${c.num}</div><div class="ch-name">${c.name}</div><div class="ch-preview">${c.preview}</div><button class="ch-btn">Explore In Depth →</button>`;
+    d.onclick=()=>openModal(i);
+    g.appendChild(d);
+  });
+}
+
+function openModal(i){
+  const c=deepChapters[i];
+  document.getElementById('mNum').textContent=c.num;
+  document.getElementById('mTitle').textContent=c.name;
+  document.getElementById('mTag').textContent=c.tagline;
+  document.getElementById('mBody').innerHTML=c.body;
+  document.getElementById('chModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('chModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('chModal').onclick=e=>{if(e.target===document.getElementById('chModal'))closeModal()};
+
+/* Freq Levels */
+let selIdx=null;
+function buildFreqLevels(){
+  const c=document.getElementById('freqLevels');
+  freqData.forEach((f,i)=>{
+    const d=document.createElement('div');
+    d.className='freq-lv';
+    d.innerHTML=`<div class="fdot" style="background:${f.color};box-shadow:0 0 8px ${f.color}55"></div><span class="flv-name">${f.e} ${f.name}</span><span class="flv-desc">${f.desc}</span><span class="flv-hz">${f.hz} Hz</span>`;
+    d.onclick=()=>{
+      document.querySelectorAll('.freq-lv').forEach(x=>x.classList.remove('selected'));
+      d.classList.add('selected');selIdx=i;
+      const ss=document.getElementById('sympSection');
+      ss.style.display='block';
+      document.getElementById('presc').classList.remove('visible');
+      buildSymptoms();
+      setTimeout(()=>ss.scrollIntoView({behavior:'smooth',block:'start'}),80);
+    };
+    c.appendChild(d);
+  });
+}
+
+function buildSymptoms(){
+  const g=document.getElementById('sympGrid');g.innerHTML='';
+  sympData.forEach(s=>{
+    const d=document.createElement('div');
+    d.className='symp-chip';
+    d.innerHTML=`<span>${s.i}</span>${s.l}`;
+    d.onclick=()=>d.classList.toggle('selected');
+    g.appendChild(d);
+  });
+}
+
+function genRx(){
+  if(selIdx===null)return;
+  const rx=selIdx<=2?rxData.high:selIdx<=8?rxData.mid:rxData.low;
+  document.getElementById('rxTitle').textContent=rx.title;
+  const l=document.getElementById('rxList');l.innerHTML='';
+  rx.steps.forEach(s=>{
+    const li=document.createElement('li');
+    li.className='rx-item';
+    li.innerHTML=`<div><div class="rx-item-t">${s.t}</div><div class="rx-item-d">${s.d}</div></div>`;
+    l.appendChild(li);
+  });
+  const p=document.getElementById('presc');
+  p.classList.add('visible');
+  setTimeout(()=>p.scrollIntoView({behavior:'smooth',block:'start'}),80);
+}
+
+/* Framework */
+function buildFramework(){
+  const tabs=document.getElementById('fwTabs');
+  const content=document.getElementById('fwContent');
+  fwData.forEach((f,i)=>{
+    const t=document.createElement('button');
+    t.className='ftab'+(i===0?' active':'');
+    t.textContent=f.tab;
+    t.onclick=()=>{
+      document.querySelectorAll('.ftab').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.ftab-pane').forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+      document.getElementById(`fw${i}`).classList.add('active');
+    };
+    tabs.appendChild(t);
+    const p=document.createElement('div');
+    p.className='ftab-pane'+(i===0?' active':'');
+    p.id=`fw${i}`;p.innerHTML=f.html;
+    content.appendChild(p);
+  });
+}
+
+/* Scenarios */
+function buildScenarios(){
+  const c=document.getElementById('scenContainer');
+  scenData.forEach(s=>{
+    const d=document.createElement('div');
+    d.className='sc-card reveal';
+    const steps=s.steps.map((st,i)=>`<div class="sc-step"><div class="sc-n">${i+1}</div><div><strong>${st.t}:</strong> ${st.d}</div></div>`).join('');
+    d.innerHTML=`<div class="sc-head"><span class="sc-emoji">${s.e}</span><div><div class="sc-title">${s.t}</div><div class="sc-problem">${s.p}</div></div></div><div class="sc-steps">${steps}</div>`;
+    c.appendChild(d);
+  });
+}
+
+/* Master Grid */
+function buildMaster(){
+  const g=document.getElementById('masterGrid');
+  masterData.forEach(m=>{
+    const d=document.createElement('div');
+    d.className='mc reveal';
+    d.style.setProperty('--acc',m.acc);
+    d.innerHTML=`<div class="mc-num">${m.n}</div><div class="mc-title">${m.t}</div><div class="mc-desc">${m.d}</div>`;
+    g.appendChild(d);
+  });
+}
+
+/* Scroll Reveal */
+function setupReveal(){
+  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  }),{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+}
+
+/* Nav toggle */
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open')}
+
+/* Timer */
+let tSecs=300,tRunning=false,tInt=null;
+function setTimer(m){
+  tSecs=m*60;updateTD();
+  if(tRunning){clearInterval(tInt);tRunning=false;document.getElementById('tBtn').textContent='▶ Start';document.getElementById('tRing').classList.remove('running');}
+}
+function toggleTimer(){
+  if(tRunning){
+    clearInterval(tInt);tRunning=false;
+    document.getElementById('tBtn').textContent='▶ Start';
+    document.getElementById('tRing').classList.remove('running');
+  } else {
+    tRunning=true;
+    document.getElementById('tBtn').textContent='⏸ Pause';
+    document.getElementById('tRing').classList.add('running');
+    tInt=setInterval(()=>{
+      if(tSecs<=0){clearInterval(tInt);tRunning=false;document.getElementById('tBtn').textContent='▶ Start';document.getElementById('tRing').classList.remove('running');document.getElementById('tDisp').textContent='✨ Done';return;}
+      tSecs--;updateTD();
+    },1000);
+  }
+}
+function updateTD(){
+  const m=Math.floor(tSecs/60).toString().padStart(2,'0');
+  const s=(tSecs%60).toString().padStart(2,'0');
+  document.getElementById('tDisp').textContent=`${m}:${s}`;
+}
+
+/* Journal */
+function jp(t){document.getElementById('jText').value=t;document.getElementById('jText').focus();}
+
+/* ── QUICK ACCESS DATA ────────────────────────────────────────── */
+const qaData=[
+  {icon:"🌌",num:"CHAPTER 01",title:"The Nature of Reality",preview:"Everything you experience is a projection of your dominant vibration. You are the broadcaster, not the receiver.",modal:0},
+  {icon:"⚡",num:"CHAPTER 02",title:"The Frequency Scale",preview:"Emotions are measurable frequency signals. Each state carries specific creative power to attract or repel life circumstances.",modal:1},
+  {icon:"🧠",num:"CHAPTER 03",title:"Programming the Subconscious",preview:"95% of your reality creation operates from subconscious programming installed before age 7. You must reprogram the server.",modal:null,body:`<p><strong>Core Teaching:</strong> Your conscious mind handles only 5% of reality creation. The other 95% is run by subconscious programming — patterns and beliefs installed primarily before age 7, when your brain operated in theta (highly suggestible) state. These programs run automatically, silently, and constantly.</p><p>To change your reality you must change the server, not the screen. Surface-level affirmations don't reach the subconscious. You need methods that bypass the conscious gatekeeper: theta meditation, sleep programming, repetition with emotion, and somatic body work.</p><div class="eg-box"><strong>Example</strong>A child raised hearing "money is the root of all evil" installs a program that equates financial success with moral wrongness. As an adult, every time they approach wealth, the subconscious sabotages it — causing them to unconsciously repel the very thing they consciously desire. Changing this requires accessing the subconscious directly, not just repeating positive mantras.</div>`},
+  {icon:"🔮",num:"CHAPTER 04",title:"The Law of Resonance",preview:"The Law of Attraction is incomplete. The deeper law is resonance — like frequencies magnetise like realities.",modal:null,body:`<p><strong>Core Teaching:</strong> The popular "Law of Attraction" is a simplified version of a deeper truth: the Law of Resonance. You don't attract what you want — you resonate with what you are. Your entire energetic field, including subconscious beliefs, emotional patterns, and dominant thoughts, creates a resonant frequency that magnetises matching circumstances.</p><p>Attraction implies a gap between you and the desired thing. Resonance says there is no gap — when you vibrate at the frequency of your desire, it simply appears because you are already a match. This is a subtle but profound distinction that changes how you approach manifestation entirely.</p><div class="eg-box"><strong>Example</strong>Two people both "attract" using vision boards and affirmations. One does it from longing (desire frequency). The other genuinely embodies the feeling of already having it (resonance frequency). Only the second person sees consistent results — because they stopped attracting and started resonating.</div>`},
+  {icon:"🌀",num:"CHAPTER 05",title:"Quantum Jumping",preview:"Based on the many-worlds interpretation: every possible version of your life already exists. Your job is to select one.",modal:null,body:`<p><strong>Core Teaching:</strong> Quantum physics proposes that all possible realities exist simultaneously in a superposition of states. The "many-worlds interpretation" suggests that every decision creates a branch. The version of you living your ideal life already exists in one of those branches. Your task is not to create that reality from scratch — it is to shift your frequency to match the branch where it already exists.</p><p>This requires what Knowledge calls an "identity death" — genuinely releasing the current version of yourself and stepping into the identity of the parallel self. Not pretending. Actually becoming. The frequency shift is what causes the "jump."</p><div class="eg-box"><strong>Example</strong>Instead of asking "How do I become a successful entrepreneur?" (future-oriented, implies lack), the quantum jumper asks: "In the reality where I am already a successful entrepreneur, how do I think, feel, and move?" Then they inhabit those answers NOW. The reality reorganises to match the new identity broadcast.</div>`},
+  {icon:"⏳",num:"CHAPTER 06",title:"Time & The Eternal Now",preview:"Linear time is a perceptual construct. In the quantum field, past, present, and future exist simultaneously.",modal:null,body:`<p><strong>Core Teaching:</strong> Linear time — the idea that past is behind us and future is ahead — is a construction of the conscious mind. In the quantum field, all moments exist simultaneously. This means your desired future is not "coming" — it already exists, right now, in a different frequency band.</p><p>The practical implication: you do not need to wait for your desired reality. You need to access it now by matching its frequency in the present moment. Memory of the future (feeling your desired outcome as a "done deal" now) is the most powerful manifesting technique the book describes.</p><div class="eg-box"><strong>Example</strong>Instead of scripting "I will be healthy," the practitioner feels the memory of already being healthy — as vividly as they would remember a holiday from five years ago. The nervous system responds to this "future memory" as real, and begins aligning biology and behaviour to match it.</div>`},
+  {icon:"🔓",num:"CHAPTER 07",title:"Removing Frequency Blocks",preview:"Trauma, limiting beliefs, and unprocessed emotion act as static noise disrupting your frequency signal.",modal:null,body:`<p><strong>Core Teaching:</strong> Even with perfect intentions and technique, unresolved trauma, limiting beliefs, and suppressed emotion act as static that drowns out your frequency signal. The universe receives a scrambled broadcast and mirrors back confusion. Clearing these blocks is not optional — it is the foundation of effective manifestation.</p><p>Knowledge identifies four main block types: inherited beliefs (absorbed from family and culture), personal trauma (stored in the body), collective agreements (society's limiting stories you've accepted), and self-worth deficits (the energetic ceiling from Ch 19). Each requires specific removal techniques.</p><div class="eg-box"><strong>Example</strong>Someone does everything right — visualises, journals, affirms — but keeps hitting the same ceiling. The block is a stored memory from age 9 of being told they were "not smart enough." This runs silently in the background, cancelling every positive signal. Somatic processing, inner child work, or timeline reimprinting are needed to dissolve it at the root.</div>`},
+  {icon:"💫",num:"CHAPTER 08",title:"The Quantum Body",preview:"The body is consciousness made dense. Its physiological state amplifies or dampens your frequency signal.",modal:3},
+  {icon:"🎯",num:"CHAPTER 09",title:"Manifestation in Action",preview:"The universe communicates through intuition and synchronicity. Inspired action is frequency made physical.",modal:3},
+  {icon:"🕊️",num:"CHAPTER 10",title:"Detachment & Surrender",preview:"Attachment is the most powerful frequency disruptor. Surrender is not giving up — it is trusting the field.",modal:null,body:`<p><strong>Core Teaching:</strong> Attachment to a specific outcome creates a frequency of desperation and lack — the exact opposite of the having frequency needed for manifestation. Paradoxically, the tighter you hold a desire, the more you broadcast your lack of it. True surrender is not giving up — it is absolute trust that the field has received your intention and is organising the response.</p><p>The practice is: set the intention with full emotional conviction, then release the outcome entirely. Live your life fully. Let the universe handle the "how" and "when." This detached certainty is one of the most powerful frequencies possible.</p><div class="eg-box"><strong>Example</strong>Someone desperate for a business breakthrough obsessively checks results, worries about timelines, and micromanages every detail — broadcasting control and anxiety (fear frequency). When they finally exhale, surrender the outcome, and focus on being excellent today, the breakthrough arrives within weeks. The field needed the bandwidth freed up by releasing attachment.</div>`},
+  {icon:"🏔️",num:"CHAPTER 11",title:"Frequency Environments",preview:"People, places, and media you consume are not neutral — they broadcast frequencies that continuously affect yours.",modal:null,body:`<p><strong>Core Teaching:</strong> Your frequency does not exist in isolation — it is constantly being influenced by every person, environment, and media source in your life. These are not neutral inputs. Each one is a frequency broadcast that either reinforces or erodes your signal. Managing your environment is as important as managing your inner state.</p><p>Knowledge applies the "5 people rule" as a frequency law: you become the average frequency of the five people you spend the most time with. He extends this to media, digital content, news, and physical spaces. Every input either lifts your frequency ceiling or lowers it.</p><div class="eg-box"><strong>Example</strong>Someone diligently practices morning meditation and journaling, raising their frequency. But they spend evenings scrolling through negative news, anxious social media, and conversations with chronic complainers. They wonder why their practice isn't "working." The environment is cancelling every gain made in the morning. Frequency management must include what you consume, not just what you generate.</div>`},
+  {icon:"👑",num:"CHAPTER 12",title:"Mastering Reality",preview:"The master doesn't react to reality — they create it. Every moment is a fresh broadcast. Every breath a new beginning.",modal:null,body:`<p><strong>Core Teaching:</strong> Reality mastery is not a destination — it is a daily practice, a way of being. The master lives by a different operating system: instead of reacting to external events and letting them dictate inner state, they choose their inner state first and let the external world respond. Every moment is a fresh opportunity to broadcast a new signal.</p><p>The master's protocol integrates all previous chapters: identity clarity, frequency awareness, emotional mastery, subconscious reprogramming, environment curation, and inspired action. They do not do these as separate practices — they have become them. The work is no longer effortful; it is natural.</p><div class="eg-box"><strong>Example</strong>A reality master receives unexpected bad news. They pause. They notice the emotional drop. They choose their response consciously — not suppressing the emotion, but processing it swiftly and returning to their set-point frequency within minutes, not days. They ask: "What is this signal asking me to adjust?" Then they act from alignment. This is mastery — not absence of challenge, but conscious navigation of it.</div>`}
+];
+
+/* Build Quick Access Grid */
+function buildQaGrid(){
+  const g=document.getElementById('qaGrid');
+  qaData.forEach((q,i)=>{
+    const d=document.createElement('div');
+    d.className='qa-card reveal';
+    d.innerHTML=`
+      <div class="qa-top">
+        <span class="qa-icon">${q.icon}</span>
+        <div class="qa-meta">
+          <div class="qa-chnum">${q.num}</div>
+          <div class="qa-title">${q.title}</div>
+        </div>
+      </div>
+      <div class="qa-preview">${q.preview}</div>
+      <div class="qa-cta">Explore Chapter</div>
+    `;
+    d.onclick=()=>{
+      if(q.modal!==null){
+        openModal(q.modal);
+      } else if(q.body){
+        // open a modal with inline body
+        document.getElementById('mNum').textContent=q.num;
+        document.getElementById('mTitle').textContent=q.title;
+        document.getElementById('mTag').textContent=q.preview;
+        document.getElementById('mBody').innerHTML=q.body;
+        document.getElementById('chModal').classList.add('open');
+        document.body.style.overflow='hidden';
+      }
+    };
+    g.appendChild(d);
+  });
+}
+
+/* ── PROBLEM SOLVER DATA ─────────────────────────────────────── */
+const psAreas=[
+  {icon:"💼",label:"Career & Work"},
+  {icon:"💰",label:"Money & Finances"},
+  {icon:"💔",label:"Relationships & Love"},
+  {icon:"🧠",label:"Mindset & Self-Worth"},
+  {icon:"🏥",label:"Health & Energy"},
+  {icon:"🎯",label:"Purpose & Direction"},
+  {icon:"👨‍👩‍👧",label:"Family & Social Life"},
+  {icon:"🌀",label:"General Stuck Feeling"}
+];
+
+const psProblems={
+  "Career & Work":[
+    {icon:"📉",label:"I keep getting overlooked or passed over"},
+    {icon:"😤",label:"I'm working hard but nothing moves forward"},
+    {icon:"🚧",label:"I lost my job or business failed"},
+    {icon:"😶",label:"I don't know what I actually want career-wise"},
+    {icon:"🔁",label:"I keep ending up in the same toxic work situations"}
+  ],
+  "Money & Finances":[
+    {icon:"📊",label:"Money comes but always disappears"},
+    {icon:"😰",label:"I'm in debt and can't see a way out"},
+    {icon:"🤲",label:"I want more but feel guilty wanting it"},
+    {icon:"🧱",label:"I hit the same financial ceiling every time"},
+    {icon:"😶",label:"I work hard but others seem to attract money effortlessly"}
+  ],
+  "Relationships & Love":[
+    {icon:"💔",label:"Relationships keep ending or turning toxic"},
+    {icon:"🔍",label:"I can't seem to find the right person"},
+    {icon:"🧊",label:"My current relationship feels cold or disconnected"},
+    {icon:"😔",label:"I feel lonely even around people"},
+    {icon:"⚡",label:"I keep attracting unavailable or harmful partners"}
+  ],
+  "Mindset & Self-Worth":[
+    {icon:"🪞",label:"I don't feel good enough / worthy enough"},
+    {icon:"😰",label:"Constant anxiety — my mind won't stop"},
+    {icon:"💀",label:"I self-sabotage every time things get good"},
+    {icon:"🎭",label:"I perform for approval and lose myself"},
+    {icon:"🌫️",label:"I feel numb, flat, or disconnected from life"}
+  ],
+  "Health & Energy":[
+    {icon:"😴",label:"Chronic exhaustion — always tired"},
+    {icon:"🤒",label:"Health issues that won't resolve"},
+    {icon:"🍔",label:"Self-destructive habits I can't break"},
+    {icon:"🧨",label:"Stress and overwhelm are my default state"},
+    {icon:"🔋",label:"No motivation or drive to do anything"}
+  ],
+  "Purpose & Direction":[
+    {icon:"🌫️",label:"I have no idea what my purpose is"},
+    {icon:"😶",label:"I know what I want but can't make myself do it"},
+    {icon:"🏃",label:"I start things enthusiastically then abandon them"},
+    {icon:"🪞",label:"I feel like I'm living someone else's life"},
+    {icon:"⏳",label:"I feel like time is running out"}
+  ],
+  "Family & Social Life":[
+    {icon:"🔥",label:"Constant conflict or tension with family"},
+    {icon:"👥",label:"I feel like the black sheep / misunderstood"},
+    {icon:"😩",label:"I give everything and feel drained by relationships"},
+    {icon:"🧲",label:"People take advantage of me repeatedly"},
+    {icon:"🏝️",label:"I feel isolated or have few genuine connections"}
+  ],
+  "General Stuck Feeling":[
+    {icon:"🌀",label:"I try everything but nothing changes"},
+    {icon:"😶",label:"Life feels flat — no joy, no aliveness"},
+    {icon:"🔁",label:"I keep repeating the same year over and over"},
+    {icon:"💤",label:"I know what to do but can't make myself do it"},
+    {icon:"🌑",label:"Something feels deeply wrong but I can't name it"}
+  ]
+};
+
+const psDurations=[
+  {icon:"⚡",label:"Just happened — this week"},
+  {icon:"📅",label:"A few weeks to a month"},
+  {icon:"🌀",label:"Several months — it keeps going"},
+  {icon:"🔁",label:"Years — this is a recurring pattern"},
+  {icon:"🌑",label:"My whole life — I don't remember it being different"}
+];
+
+const psBeliefs={
+  "Career & Work":[
+    {icon:"😔",label:"I'm not talented / smart enough compared to others"},
+    {icon:"⚖️",label:"Success requires suffering — it has to be hard"},
+    {icon:"👁️",label:"If I succeed, people will resent or abandon me"},
+    {icon:"🔮",label:"I don't deserve good opportunities"},
+    {icon:"🤷",label:"The system is rigged — it doesn't matter what I do"}
+  ],
+  "Money & Finances":[
+    {icon:"😈",label:"Rich people are greedy or morally wrong"},
+    {icon:"😔",label:"I'm not the kind of person who has money"},
+    {icon:"⚠️",label:"Wanting more money is selfish or shallow"},
+    {icon:"🔮",label:"Money always causes problems or stress"},
+    {icon:"🧱",label:"My family never had money — I won't either"}
+  ],
+  "Relationships & Love":[
+    {icon:"💔",label:"People always leave / abandon me eventually"},
+    {icon:"🎭",label:"I have to perform or change myself to be loved"},
+    {icon:"⚠️",label:"Letting people close always leads to hurt"},
+    {icon:"🪞",label:"I'm too broken / damaged to have a real relationship"},
+    {icon:"🔮",label:"Good relationships are for other people, not me"}
+  ],
+  "Mindset & Self-Worth":[
+    {icon:"😔",label:"I'm fundamentally flawed or broken"},
+    {icon:"🎭",label:"My real self is not acceptable to others"},
+    {icon:"⚡",label:"Bad things happen to me more than most people"},
+    {icon:"🔒",label:"I don't have the willpower / discipline to change"},
+    {icon:"🌑",label:"I don't deserve to feel good or be happy"}
+  ],
+  "Health & Energy":[
+    {icon:"😔",label:"My body is working against me"},
+    {icon:"⏳",label:"I'm getting older — decline is inevitable"},
+    {icon:"🧬",label:"It's genetic — I can't change it"},
+    {icon:"🤷",label:"I've tried everything — nothing works for me"},
+    {icon:"🔮",label:"Being sick is just part of who I am now"}
+  ],
+  "Purpose & Direction":[
+    {icon:"⏳",label:"It's too late — I've wasted too much time"},
+    {icon:"💸",label:"Following my passion is irresponsible / unrealistic"},
+    {icon:"😔",label:"Other people have a calling — I was skipped"},
+    {icon:"🤷",label:"Even if I knew my purpose, I couldn't make it work"},
+    {icon:"🌑",label:"I don't deserve to want more than I have"}
+  ],
+  "Family & Social Life":[
+    {icon:"😔",label:"I'm fundamentally different — I'll always be alone"},
+    {icon:"⚖️",label:"Conflict is inevitable — relationships are always painful"},
+    {icon:"🎭",label:"I have to keep the peace even at my own expense"},
+    {icon:"🔮",label:"My family will never understand or accept me"},
+    {icon:"😤",label:"People are fundamentally selfish and disappointing"}
+  ],
+  "General Stuck Feeling":[
+    {icon:"😔",label:"I'm just not one of the lucky ones"},
+    {icon:"🔒",label:"I've tried to change — I simply can't"},
+    {icon:"⏳",label:"My window of opportunity has passed"},
+    {icon:"🌑",label:"There's something wrong with me at a deep level"},
+    {icon:"🤷",label:"Life just doesn't work out for people like me"}
+  ]
+};
+
+const psActions=[
+  {icon:"📖",label:"Lots of reading / research but little action"},
+  {icon:"💪",label:"Tried hard with action — nothing stuck"},
+  {icon:"🧘",label:"Meditation, journaling, affirmations — inconsistently"},
+  {icon:"🗣️",label:"Talked to friends, therapist, or coaches"},
+  {icon:"🌀",label:"Nothing — I feel paralysed / don't know where to start"}
+];
+
+/* Problem Solver Solutions DB */
+const psSolutions={
+  "Career & Work":{
+    "I keep getting overlooked or passed over":{
+      title:"You Are Broadcasting Invisibility",
+      sub:"The pattern of being overlooked is not external bad luck — it is an internal frequency of smallness that you are broadcasting without realising it.",
+      diagnosis:"According to Chapter 19 (The Energetic Ceiling), your self-worth ceiling is set below the level of recognition you desire. You may consciously want to be seen, but subconsciously you are sending a signal that says 'I don't quite deserve this yet.' The universe, which is a perfect mirror, reflects that signal back as being overlooked. Chapter 2 confirms: the universe responds to frequency, not to how nice, capable, or hardworking you are.",
+      steps:[
+        {t:"Audit your self-worth ceiling",d:"Ask honestly: 'Do I believe at my core that I deserve to be recognised and advanced?' Not intellectually — emotionally. If there is any hesitation, this is your block. Write it out."},
+        {t:"Find the origin belief",d:"Chapter 13 teaches that beliefs own you. When was the first time you felt invisible or passed over? What did you decide about yourself then? Name that original moment."},
+        {t:"Build the 'being seen' frequency",d:"Daily, spend 5 minutes vividly recalling a moment you were genuinely recognised — however small. Re-experience the feeling in full. This installs the 'I deserve to be seen' frequency into your nervous system."},
+        {t:"Change your broadcast in rooms",d:"Chapter 17 (Attention): whatever you give attention to grows. In meetings and interactions, shift your attention from 'will they notice me?' to 'I am fully present and contributing.' The internal shift changes your energetic presence immediately."},
+        {t:"Take the visible action",d:"Chapter 3: ATFT. Promise yourself one visible contribution today — speak in the meeting, send the idea, volunteer for the visible task. Do not wait to feel ready."}
+      ],
+      example:"A mid-level manager kept getting passed over for promotion despite strong performance reviews. Working with this framework, she identified a childhood pattern: her older sibling always outshone her and she learned 'staying small keeps the peace.' Once she identified this, she began the self-worth visualisation daily. Within 6 weeks her energy in meetings noticeably shifted — colleagues described her as 'more commanding.' She was promoted within 3 months.",
+      affirmation:"I am fully seen, fully valued, and fully deserving of advancement. My presence matters and my contribution is recognised."
+    },
+    "I'm working hard but nothing moves forward":{
+      title:"You Are Working at the Wrong Level",
+      sub:"Effort without frequency alignment is like running on a treadmill — maximum energy, zero progress. The universe responds to your state, not your hours.",
+      diagnosis:"Chapter 11 is precise: 'The wrong frequency, even with the right action, always leads to the wrong reality.' You are taking action from a stressed, fearful, or contracted frequency — and that state is actually broadcasting the signal of scarcity and struggle to the universe, which mirrors it back as continued struggle. More effort from the same frequency produces more of the same result.",
+      steps:[
+        {t:"Stop. Recalibrate first.",d:"Chapter 5 (Magnify & Maintain): the universe is magnifying your current state of stress and maintaining it. Before any more action, you must interrupt this loop. Take 24 hours with deliberately reduced work output and deliberate frequency elevation."},
+        {t:"Identify what you are actually broadcasting",d:"When you sit at your desk, what is the dominant feeling? Anxiety? Desperation? Resentment? Name it precisely. That feeling — not your work — is your current broadcast."},
+        {t:"Move to the Having Chair",d:"Chapter 6: you are sitting in the 'wanting' chair — which signals to the universe that progress is absent. Spend 10 minutes each morning in the 'having' state: close your eyes and feel what it is like when the work is flowing and results are appearing. Feel it as memory, not hope."},
+        {t:"Shift to inspired action",d:"Chapter 11: ask each morning, 'What one action feels genuinely inspired — that excites rather than drains me?' Do that first. Align the action to the elevated state, not to the panic."},
+        {t:"Evidence inventory",d:"Write 10 things that are already working — however small. Chapter 17: attention feeds reality. Feeding your attention to what is working shifts the frequency and begins to magnetise more of the same."}
+      ],
+      example:"A freelance designer worked 70-hour weeks but couldn't land consistent clients. She was broadcasting desperation. When she reduced her hours, began morning 'having chair' practice, and shifted to only reaching out to clients when feeling genuinely excited about the work — her conversion rate tripled within two months. Less effort, right frequency, better results.",
+      affirmation:"My aligned effort flows effortlessly into results. I work from inspiration, not desperation, and the universe meets my energy with matching momentum."
+    }
+  },
+  "Money & Finances":{
+    "Money comes but always disappears":{
+      title:"You Have a Money Retention Block — Not a Money Attraction Block",
+      sub:"The fact that money comes means you can attract it. The fact that it always leaves means your subconscious does not believe it is safe or deserved to stay.",
+      diagnosis:"Chapter 19 (Energetic Ceiling) is the direct cause. Your self-worth ceiling for financial abundance is set at your current level. When money arrives above that ceiling, your subconscious — which is always defending its known world — creates the mechanism to return you to the familiar level. This is not random misfortune. It is a precision system doing exactly what it was programmed to do.",
+      steps:[
+        {t:"Identify the 'money is dangerous' belief",d:"Chapter 13: ask 'What bad thing do I secretly believe will happen if I have and keep significant money?' Common answers: people will resent me, I'll lose it anyway, it will complicate my relationships, I'm not the type. Write every answer without filtering."},
+        {t:"Upgrade the ceiling through felt imagination",d:"Chapter 19: the mind cannot distinguish imagination from reality. Spend 10 minutes daily vividly imagining what your life looks, feels, and sounds like with financial stability — not as a wish, but as a memory. Drill the nervous system into accepting this as 'normal.'"},
+        {t:"Practice keeping",d:"Chapter 4 (Compound Interest): start a practice of keeping — however small. A separate 'untouchable' savings. Not about the amount — about training the subconscious that money stays. Even £10 kept consistently installs a new retention program."},
+        {t:"Eliminate the guilt frequency",d:"If wanting money or keeping money feels guilty or uncomfortable, you are broadcasting a repulsion signal. Chapter 2: the universe responds to frequency, not morality. Wealth with guilt cannot be sustained. Explore the guilt and dissolve it through journaling and the belief archaeology process."},
+        {t:"Gratitude for existing money",d:"Every note, every payment received — pause and feel genuine appreciation for it. Chapter 15: emotion is the language of the subconscious. Emotional gratitude for money trains the subconscious that money is welcome and safe to stay."}
+      ],
+      example:"A sales professional earned well in good months but always found the money gone by month end — unexpected expenses, impulsive spending, money 'finding ways to leave.' She discovered through this process a deep childhood belief: 'Money causes family arguments.' Her subconscious was removing money before it could cause the anticipated conflict. Once the belief was named and cleared, her financial stability shifted dramatically within one quarter.",
+      affirmation:"Money flows to me freely and stays with ease. I am a safe home for abundance. I deserve to keep and grow what I receive."
+    },
+    "I'm in debt and can't see a way out":{
+      title:"Fear Frequency is Deepening the Hole — Shift First, Strategise Second",
+      sub:"Debt viewed through a fear lens attracts more scarcity. The first shift is frequency — then strategy becomes effective.",
+      diagnosis:"Chapter 5 is operating against you: the universe is magnifying your dominant state of fear, panic, and scarcity around money — and maintaining you at that frequency level. Every decision made from this state will reinforce the pattern. You cannot financially strategise your way out of a frequency problem. The frequency must shift first — even partially — before action becomes effective.",
+      steps:[
+        {t:"Emergency frequency stabilisation",d:"Before any spreadsheets or plans: two days of deliberate frequency practice. Morning and evening, 10-min visualisation of being debt-free — not the journey, the feeling of already being on the other side. The brain needs to believe the exit is possible before it can navigate toward it."},
+        {t:"Separate identity from circumstance",d:"Chapter 8: you are not your debt. Your current financial situation is a circumstance — it is not who you are. Debt is a chapter, not the story. Write: 'I am not my debt. I am a creator moving through a financial challenge.' Say it until it feels true."},
+        {t:"Find the generosity frequency",d:"Chapter 7: give something freely — even from lack. Time, knowledge, a meal, a compliment. This broadcasts 'I have enough to share' and begins reversing the scarcity signal. Counterintuitive but chapter-confirmed."},
+        {t:"One clear action from calm",d:"From a deliberate calm state — after the morning practice, not in the panic of the evening — identify ONE concrete financial action for this week. Not twenty. One. Aligned action from calm frequency is exponentially more effective than frantic action from fear."},
+        {t:"Evidence of resourcefulness",d:"List every time in your life you solved a financial problem, found a creative solution, or got through a hard period. Chapter 17: you are feeding your attention to the problem. Feed it to your history of resourcefulness instead."}
+      ],
+      example:"A woman with £23,000 in debt was drowning in shame and panic — making desperate financial decisions that kept worsening the situation. She spent two weeks on frequency stabilisation only — no financial planning. She was taught to separate her identity from the debt and practice morning 'debt-free feeling' visualisations. After two weeks, she described feeling 'a strange calm.' From that calm, her first inspired action was contacting a debt consolidation service she had previously been too ashamed to call. Her repayment plan reduced her monthly burden by 60%.",
+      affirmation:"I am moving through this circumstance with clarity and calm. I am resourceful, capable, and already on my way to financial freedom."
+    }
+  },
+  "Relationships & Love":{
+    "Relationships keep ending or turning toxic":{
+      title:"You Are Attracting Your Frequency Mirror",
+      sub:"Every person who has appeared in your romantic life has been a perfect frequency match for where you were at that time. The pattern reveals the program.",
+      diagnosis:"Chapter 12 (Perception–Projection Loop) and Chapter 13 (Beliefs That Have You) are the twin causes. You are projecting a subconscious template — a set of beliefs about what you deserve, what love feels like, and what is familiar — and attracting people who match that template precisely. The pattern of toxicity or abandonment is not bad luck. It is a subconscious program running with perfect accuracy.",
+      steps:[
+        {t:"Map the pattern precisely",d:"List every significant relationship. What did they have in common? What familiar feeling did each one re-create? What did you always end up feeling? The common thread is the program — not the people."},
+        {t:"Find the original wound",d:"Chapter 13: when was the first time you felt this pattern? Usually childhood. What did you decide about love, about yourself, about what you deserve? This is the root belief running the pattern."},
+        {t:"Build love from within first",d:"Chapter 6 (Having Chair): you cannot receive love externally at a frequency higher than you give yourself internally. Before seeking a relationship, the work is becoming your own source of the love frequency. Daily self-love practice — not indulgence, but genuine self-acceptance and care."},
+        {t:"Rewrite the relationship template",d:"Using the theta sleep window (Chapter 3): as you fall asleep, hold a clear felt sense of what a healthy, loving relationship actually feels like. Safety. Ease. Mutual respect. Plant this template repeatedly into the subconscious. It will begin recalibrating what feels 'familiar.'"},
+        {t:"Increase your worth ceiling",d:"Chapter 19: the people you attract cannot exceed your self-worth ceiling. Raise the ceiling through the self-worth practices — vivid imagination, evidence of your worth, detachment from external validation — and the quality of people you resonate with will rise accordingly."}
+      ],
+      example:"A man married three times noticed an uncomfortable pattern: each partner had initially seemed completely different, but all three had ended with him feeling controlled and diminished. Through this work he identified a childhood template: his mother's love had been conditional on performance. He had learned to equate love with earning approval. Once he named this, began self-worth practice, and planted a new relationship template at the theta window, his next relationship — which arrived 18 months later — felt genuinely different from the first week. For the first time, he said, he didn't feel like he had to perform.",
+      affirmation:"I am worthy of deep, safe, mutual love. I attract relationships that match my highest frequency. I am whole within myself."
+    }
+  },
+  "Mindset & Self-Worth":{
+    "I don't feel good enough / worthy enough":{
+      title:"Your Energetic Ceiling Is Set at 'Not Enough' — This Is the Root of Every Other Block",
+      sub:"Low self-worth is not a personality flaw. It is a subconscious program installed by repetition. Programs can be uninstalled.",
+      diagnosis:"Chapter 19 is specifically about you. Your self-worth ceiling — the level of good that your subconscious accepts as 'safe' and 'allowed' — is set below what you consciously desire. This is the master block. Every area of life that is underperforming is a downstream effect of this single upstream cause. Change this one block and every other area begins to shift.",
+      steps:[
+        {t:"Stop explaining it away",d:"The first block to remove is the habit of justifying the low self-worth: 'I had a hard childhood,' 'I've made too many mistakes,' 'others have it worse so I should be grateful.' These explanations maintain the program. Name it as what it is: a frequency program, not an objective truth."},
+        {t:"Build an evidence bank",d:"Every day, write three things you did well — however small. Not achievements by others' standards. Things that demonstrated care, effort, love, or courage. Over 30 days this builds a subconscious evidence base that challenges the 'not enough' narrative with lived proof."},
+        {t:"Vivid imagination upgrade",d:"Chapter 19: the mind cannot distinguish imagination from reality. Spend 10 minutes daily imagining yourself as someone who knows their worth completely — walk as them, speak as them, make decisions as them. The nervous system begins accepting this as the new default."},
+        {t:"Detach from external validation completely",d:"Chapter 19 warns: 'If their approval can raise or lower your worth, they control your reality.' Every time you seek validation, you reinforce the belief that worth comes from outside. Practice making one decision per day solely from your own inner compass, regardless of what others might think."},
+        {t:"21-day identity install",d:"Write: 'I am worthy of love, abundance, health, and success — not because I have earned it, but because I exist.' Read it aloud each night in the theta window. Not once — 21 consecutive nights. This plants the new program where the old one lives."}
+      ],
+      example:"A successful professional woman had achieved significant career success but lived with a constant background hum of 'it's not enough' and 'I'm not enough.' She never celebrated wins, always moved the goalposts, and couldn't accept compliments. Using the evidence bank practice and the 21-day identity install, her inner dialogue began shifting noticeably at day 14. By day 21, colleagues noticed she was 'different somehow' — calmer, more grounded, more present. She described it as: 'For the first time I don't feel like I'm auditioning for my own life.'",
+      affirmation:"I am worthy — fully, completely, as I am right now. My worth is inherent, not earned. I allow myself to receive all that I deserve."
+    },
+    "I self-sabotage every time things get good":{
+      title:"Your Subconscious Is Defending a Familiar Ceiling — Safety Over Success",
+      sub:"Self-sabotage is not weakness or stupidity. It is your subconscious protecting you from what it has learned to associate with danger.",
+      diagnosis:"Chapter 19 (Energetic Ceiling) combined with Chapter 13 (Beliefs That Have You). When things improve beyond your set-point, your subconscious — which is programmed to maintain homeostasis at the familiar level — creates the exact situation needed to pull you back to 'safe.' This manifests as sabotage: picking fights, procrastinating at critical moments, making irrational decisions, creating drama. It is not a character flaw. It is a protection mechanism running an outdated program.",
+      steps:[
+        {t:"Map your sabotage signature",d:"What specific form does your sabotage take? Procrastination? Self-destruction when close to success? Creating relationship drama? Spending money right before a breakthrough? Name your specific pattern. Awareness is the first interruption."},
+        {t:"Find what success was associated with",d:"Ask: 'What bad thing does my subconscious believe will happen if I fully succeed?' Common answers: 'People will expect too much of me,' 'I'll lose my identity,' 'Those close to me will feel threatened,' 'I'll be exposed as a fraud.' Write every answer."},
+        {t:"Build safety around success",d:"Create new associations. Write: 'When I succeed, I feel safe, supported, and at peace.' Pair this with the theta window practice. The subconscious needs to learn that success does not equal the feared outcome."},
+        {t:"Interrupt the pattern in real time",d:"When you notice the sabotage impulse arising — the urge to procrastinate, the desire to pick a fight, the irrational spending — name it aloud: 'This is my sabotage pattern activating.' The act of naming it engages the conscious mind and interrupts the automatic program."},
+        {t:"Celebrate every step you don't sabotage",d:"Chapter 3 (ATFT): every time you choose NOT to sabotage, acknowledge it loudly to yourself. 'I did not sabotage this. I stayed.' This builds new neural pathways — a new familiar — where success without self-destruction becomes the expected outcome."}
+      ],
+      example:"A writer completed book after book but always found a reason not to submit — technical issues, the manuscript 'not being ready,' sudden illness at deadline. Through this process she identified the belief: 'If the book is published and rejected, that means I'm truly not good enough — and right now at least I have hope.' Her self-sabotage was protecting her from the definitive verdict. Once she named this, she changed her inner story: 'Publishing is not a verdict on my worth — it is simply a broadcast into the world.' She submitted her next manuscript with two days to spare.",
+      affirmation:"Success is safe for me. I allow good things to stay. Every step forward is welcomed and celebrated."
+    }
+  },
+  "Purpose & Direction":{
+    "I have no idea what my purpose is":{
+      title:"Purpose Is Not Found by Searching — It Is Revealed by Frequency",
+      sub:"You cannot think your way to purpose from a low frequency. Purpose is a high-frequency broadcast that only becomes audible when your static is cleared.",
+      diagnosis:"Chapter 11 describes the intuition chain: Frequency → Intuition → Nudges → Action. Purpose arrives as intuitive nudges — but those nudges are only receivable above a certain frequency threshold. When you are stuck in fear, analysis paralysis, or scarcity, the static drowns out the signal. The search for purpose from a low frequency becomes circular and exhausting. The work is elevation first — then listening.",
+      steps:[
+        {t:"Stop the urgent search",d:"The desperate searching for purpose is itself a low-frequency activity — it broadcasts 'I am lost and lacking.' Chapter 6: sitting in the 'wanting purpose' chair reinforces its absence. Paradoxically, reducing the frantic searching is step one."},
+        {t:"Follow every genuine spark",d:"Chapter 11: don't look for THE purpose — look for the next nudge. What activities make you lose track of time? What problems do you find yourself naturally drawn to solve? What did you love as a child before you learned what you 'should' want? These are frequency signals."},
+        {t:"Elevate frequency first",d:"Spend two weeks doing one thing daily that generates genuine joy — not productive joy, pure play. Music, nature, movement, creating. This elevates you to the frequency where intuitive nudges about purpose become audible."},
+        {t:"Ask the higher self question",d:"In morning meditation, ask: 'In the parallel reality where I am fully alive and purposeful, what am I doing?' Then stay quiet for 10 minutes without analysis. Write the first thing that arrives. Don't edit it. Don't rationalise it. Just note it."},
+        {t:"Act on the smallest signal",d:"Chapter 11: you don't need the full picture — just the next step. Take one small action on the most recent genuine nudge you've had. Not a life overhaul. One email, one class, one conversation. Action at aligned frequency reveals the next step."}
+      ],
+      example:"A 38-year-old accountant had spent years 'searching for his purpose' — reading books, doing personality tests, changing jobs. Nothing clicked. He tried the frequency elevation practice for three weeks — daily runs, guitar (abandoned at 22), and cooking. At week two, during a run, a clear thought arrived: 'I want to teach people about money in a way that removes their shame around it.' Not dramatic. Just clear. He started a free financial literacy workshop at his local library. Eighteen months later it had become his primary income and work.",
+      affirmation:"My purpose is already alive within me. I trust the signals. I follow the joy. My path is being revealed one step at a time."
+    }
+  },
+  "Health & Energy":{
+    "Chronic exhaustion — always tired":{
+      title:"Your Energy Is Being Consumed by Frequency Leaks You Haven't Identified",
+      sub:"Physical exhaustion that doesn't resolve with rest is often a symptom of energetic drainage — your frequency is being consumed at a rate faster than it can regenerate.",
+      diagnosis:"Chapter 8 (The Quantum Body) is the direct chapter: the body is consciousness made dense. Its physiological state amplifies or dampens frequency. But the reverse is also true — your frequency state directly impacts your physiology. Chronic low-frequency states (fear, resentment, grief, constant stress) create a physiological drain that manifests as physical exhaustion. Chapter 11 (Frequency Environments) is secondary: if your environment is chronically low-frequency, it is drawing from your energetic reserves continuously.",
+      steps:[
+        {t:"Audit your energy drains",d:"For one week, notice after every interaction, activity, or content consumption: did this increase or decrease my energy? Identify your three biggest energy drains. These are your frequency leaks."},
+        {t:"Address the suppressed emotion",d:"Chapter 15 (Law of Emotion): suppressed emotion is stored in the body and consumes enormous energy to maintain. What are you not allowing yourself to feel fully? Grief, anger, disappointment? Allow it through — movement, breathing, journaling, crying. Release is energising, not draining."},
+        {t:"Remove one chronic stressor",d:"Identify the single most energy-consuming stressor in your life. Chapter 4 (Sacrifice): what would you need to sacrifice to remove or reduce it? The cost of keeping it is exhaustion. The cost of removing it is change. Which is worth more?"},
+        {t:"Install frequency anchors",d:"Create three daily moments that reliably raise your frequency — even for 5 minutes each. Nature exposure, music that moves you, movement you enjoy, genuine connection. These become energetic recharging stations throughout the day."},
+        {t:"Sleep programming",d:"Chapter 3: the theta window before sleep is your deepest recovery portal. Instead of screens, spend the last 10 minutes before sleep in a body scan, releasing each area of tension and breathing energy into it. This dramatically improves sleep quality and morning energy levels."}
+      ],
+      example:"A teacher in her early 40s had been exhausted for three years — sleeping 9 hours and waking tired, declining social invitations, dependent on caffeine. Tests showed no physiological cause. Energy drain audit revealed: a deeply resentful marriage she hadn't admitted to herself, 45-minute daily news consumption, and suppressed grief about an estrangement from her sister. She began addressing each one. Within six weeks of the emotional processing work alone, her energy levels noticeably improved. 'I thought I was physically broken,' she said. 'I was emotionally blocked.'",
+      affirmation:"My body is regenerating and vital. I release all that drains me. I am recharged, renewed, and energetically clear."
+    }
+  },
+  "Family & Social Life":{
+    "Constant conflict or tension with family":{
+      title:"Family Conflict Is a Frequency Mirror — And a Frequency Contamination Risk",
+      sub:"Family members trigger you because they reflect your unresolved wounds. And chronic exposure to their frequency affects yours — unless you build a deliberate frequency boundary.",
+      diagnosis:"Chapter 12 (Perception–Projection Loop): the intensity of your reaction to a family member is precisely proportional to the unresolved wound they are touching in you. They are holding up a mirror — your anger at them is information about you. Chapter 16 (Transcend the Collective): family is the original collective frequency system. Its patterns, beliefs, and emotional habits are designed to maintain homeostasis — and they will pull you back to the family frequency unless you deliberately separate your broadcast from theirs.",
+      steps:[
+        {t:"Identify YOUR trigger — not their behaviour",d:"For each conflict, ask: 'What is the feeling this person creates in me?' Then ask: 'When is the earliest I remember feeling this?' The family member is not the cause — they are the activator of a pre-existing wound."},
+        {t:"Depersonalise completely",d:"Chapter 12: their behaviour is a projection of their own frequency and pain. It is not about you. Understanding this does not mean accepting mistreatment — it means removing the emotional charge by separating their pattern from your worth."},
+        {t:"Build the frequency bubble",d:"Chapter 16: before every family interaction, 5-min heart coherence breathing + an internal declaration: 'I maintain my own broadcast regardless of what is happening around me.' Practice this until it becomes automatic."},
+        {t:"Reduce exposure where needed",d:"Chapter 11 (Frequency Environments): chronic exposure to a low-frequency environment requires either consistent frequency management or reduced exposure. Some family relationships require energetic distance for your signal to remain clear. This is not abandonment — it is self-preservation."},
+        {t:"Forgiveness as frequency work",d:"Chapter 4 (Compound Interest): resentment towards family members anchors you to their frequency indefinitely — every thought of grievance is a frequency thread keeping you entangled. Forgiveness (privately, for your sake, not theirs) severs that thread and frees your signal."}
+      ],
+      example:"A woman in her 30s had chronic conflict with her mother — every phone call ending in arguments. Through this process she identified her trigger: her mother's criticism created the same feeling she'd had at age 7 when told she 'always did everything wrong.' The conflict wasn't about the current topic — it was a 25-year-old wound being re-activated. Once she identified this, she could enter calls with the frequency bubble practice. Within three months she reported: 'I still have the same mother. But somehow the calls don't destroy me anymore.'",
+      affirmation:"I maintain my own frequency with love and clarity. I choose peace. I release the need for others to be different before I can feel free."
+    }
+  },
+  "General Stuck Feeling":{
+    "I keep repeating the same year over and over":{
+      title:"You Are Stuck in a Frequency Loop — The Universe Is Maintaining Your Homeostasis",
+      sub:"Repetition is not bad luck. It is the universe precisely following your subconscious instructions to maintain the familiar frequency level.",
+      diagnosis:"Chapter 5 (Magnify & Maintain) is operating perfectly against you: the universe maintains you at your current frequency level. Without a deliberate, sustained frequency shift, the same year repeating is the expected and accurate outcome. Chapter 4 (Compound Interest) adds the dimension: every year you stay in the loop, the pattern deepens. The cost of not changing compounds over time. The question is not 'why does this keep happening?' The question is 'what am I broadcasting that creates this, and what am I not willing to sacrifice to change it?'",
+      steps:[
+        {t:"Identify the actual loop",d:"Write the pattern precisely: what keeps repeating? Not the surface events — the underlying feeling and dynamic. 'I get close to a breakthrough and then ___.' 'I start strong and then ___.' 'Every year I'm in the same ___ situation.' Name the exact loop."},
+        {t:"Find the payoff",d:"Every loop has a hidden payoff that maintains it — familiarity, avoiding a feared outcome, keeping a relationship intact, maintaining an identity. Ask: 'What am I getting from staying in this loop? What would I have to face if it changed?' This is the real resistance."},
+        {t:"Identify what must be sacrificed",d:"Chapter 4: change requires sacrifice. What specifically must you give up to break the loop? A relationship, a comfort habit, an identity, an excuse, a resentment, a belief? Name it exactly. The loop will continue until this sacrifice is made."},
+        {t:"Make one radical departure",d:"Chapter 18 (Prepare to Be Bad): you cannot create an extraordinary reality by playing ordinary rules. The loop requires an extraordinary disruption. One significant decision that breaks the pattern completely — even if it feels irrational, risky, or uncomfortable to others."},
+        {t:"Track the new signal for 90 days",d:"Chapter 4: frequency compounds. The new pattern needs consistent daily reinforcement for at least 90 days before it becomes the new default. Use the morning protocol, the evening review, and daily frequency checks throughout this window."}
+      ],
+      example:"A man in his late 40s had spent a decade starting businesses that always reached the same revenue level before collapsing. Pattern analysis revealed the loop: at a certain income threshold, he would unconsciously begin making reckless decisions. Hidden payoff discovery: his father had failed in business and this man had unconsciously decided that exceeding his father's success felt like a betrayal. The sacrifice required: releasing the loyalty to his father's ceiling. The radical departure: for the first time, he hired a mentor and actively sought a higher revenue target. 'For the first time in 10 years,' he said, 'I drove past the number instead of through it.'",
+      affirmation:"I break free from every loop with love and courage. I am willing to become unfamiliar to myself in service of my highest reality. The new is safe."
+    }
+  }
+};
+
+/* ── PROBLEM SOLVER STATE ─────────────────────────────────────── */
+let psState={area:null,problem:null,duration:null,belief:null,action:null};
+
+function buildPS(){
+  const areas=document.getElementById('ps-area-choices');
+  psAreas.forEach(a=>{
+    const b=document.createElement('button');
+    b.className='ps-choice';
+    b.innerHTML=`<span class="ps-choice-icon">${a.icon}</span>${a.label}`;
+    b.onclick=()=>selectArea(a.label,b);
+    areas.appendChild(b);
+  });
+}
+
+function selectArea(label,btn){
+  psState={area:label,problem:null,duration:null,belief:null,action:null};
+  document.querySelectorAll('#ps-area-choices .ps-choice').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  // Build step 2
+  const c=document.getElementById('ps-problem-choices');c.innerHTML='';
+  const probs=psProblems[label]||[];
+  probs.forEach(p=>{
+    const b=document.createElement('button');
+    b.className='ps-choice';
+    b.innerHTML=`<span class="ps-choice-icon">${p.icon}</span>${p.label}`;
+    b.onclick=()=>selectProblem(p.label,b);
+    c.appendChild(b);
+  });
+  showStep('ps-step2');
+}
+
+function selectProblem(label,btn){
+  psState.problem=label;
+  document.querySelectorAll('#ps-problem-choices .ps-choice').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  // Build duration
+  const c=document.getElementById('ps-duration-choices');c.innerHTML='';
+  psDurations.forEach(d=>{
+    const b=document.createElement('button');
+    b.className='ps-choice';
+    b.innerHTML=`<span class="ps-choice-icon">${d.icon}</span>${d.label}`;
+    b.onclick=()=>selectDuration(d.label,b);
+    c.appendChild(b);
+  });
+  showStep('ps-step3');
+}
+
+function selectDuration(label,btn){
+  psState.duration=label;
+  document.querySelectorAll('#ps-duration-choices .ps-choice').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  // Build beliefs
+  const c=document.getElementById('ps-belief-choices');c.innerHTML='';
+  const beliefs=psBeliefs[psState.area]||[];
+  beliefs.forEach(b2=>{
+    const b=document.createElement('button');
+    b.className='ps-choice';
+    b.innerHTML=`<span class="ps-choice-icon">${b2.icon}</span>${b2.label}`;
+    b.onclick=()=>selectBelief(b2.label,b);
+    c.appendChild(b);
+  });
+  showStep('ps-step4');
+}
+
+function selectBelief(label,btn){
+  psState.belief=label;
+  document.querySelectorAll('#ps-belief-choices .ps-choice').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  // Build actions
+  const c=document.getElementById('ps-action-choices');c.innerHTML='';
+  psActions.forEach(a=>{
+    const b=document.createElement('button');
+    b.className='ps-choice';
+    b.innerHTML=`<span class="ps-choice-icon">${a.icon}</span>${a.label}`;
+    b.onclick=()=>selectAction(a.label,b);
+    c.appendChild(b);
+  });
+  showStep('ps-step5');
+}
+
+function selectAction(label,btn){
+  psState.action=label;
+  document.querySelectorAll('#ps-action-choices .ps-choice').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  setTimeout(()=>renderSolution(),300);
+}
+
+function showStep(id){
+  const el=document.getElementById(id);
+  el.style.display='block';
+  el.style.animation='none';
+  el.offsetHeight; // reflow
+  el.style.animation='fadeUp .4s ease';
+  setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),80);
+}
+
+function renderSolution(){
+  const{area,problem,duration,belief}=psState;
+  // Try to find specific solution, fall back to generic
+  let sol=null;
+  if(psSolutions[area]&&psSolutions[area][problem]){
+    sol=psSolutions[area][problem];
+  }
+  const solEl=document.getElementById('ps-solution');
+  // Build depth modifier based on duration
+  const depthNote=duration==="My whole life — I don't remember it being different"
+    ?" This is a deeply installed pattern — likely a core identity program. The work requires patience and consistency over 90+ days, not a quick fix."
+    :duration==="Years — this is a recurring pattern"
+    ?" This is a well-established program. Expect 30–60 days of consistent practice for measurable shift."
+    :" This is relatively recent. With consistent frequency work, shifts can be rapid — sometimes within days.";
+
+  if(sol){
+    document.getElementById('ps-sol-title').textContent=sol.title;
+    document.getElementById('ps-sol-sub').textContent=sol.sub+depthNote;
+    document.getElementById('ps-sol-diagnosis').innerHTML=`
+      <span class="ps-sol-diagnosis-label">✦ Frequency Diagnosis</span>
+      <p>${sol.diagnosis}</p>
+      <p style="margin-top:10px;font-size:.88rem;color:var(--text-muted)">Identified belief: "${belief}" — Duration context: ${duration}</p>
+    `;
+    const stepHtml=`
+      <div class="ps-sol-steps-title">Your Step-by-Step Solution</div>
+      <div class="ps-sol-step-list">
+        ${sol.steps.map((s,i)=>`
+          <div class="ps-sol-step">
+            <div class="ps-sol-step-n">${i+1}</div>
+            <div><strong>${s.t}:</strong> ${s.d}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    document.getElementById('ps-sol-steps').innerHTML=stepHtml;
+    document.getElementById('ps-sol-example').innerHTML=`
+      <div class="ps-sol-eg">
+        <span class="ps-sol-eg-label">✦ Real Example</span>
+        <p>${sol.example}</p>
+      </div>
+    `;
+    document.getElementById('ps-sol-affirmation').innerHTML=`
+      <div class="ps-sol-affirm">
+        <span class="ps-sol-affirm-label">✦ Your Frequency Anchor Statement</span>
+        <div class="ps-sol-affirm-text">"${sol.affirmation}"</div>
+      </div>
+    `;
+  } else {
+    // Generic fallback
+    document.getElementById('ps-sol-title').textContent="Your Frequency Diagnosis";
+    document.getElementById('ps-sol-sub').textContent=`Area: ${area} · Issue: ${problem}.${depthNote}`;
+    document.getElementById('ps-sol-diagnosis').innerHTML=`
+      <span class="ps-sol-diagnosis-label">✦ Frequency Diagnosis</span>
+      <p>Based on your answers, the primary block is a subconscious frequency program running in the background — sustaining the familiar level and preventing the new one from landing. Your identified belief ("<em>${belief}</em>") is the specific program to target.</p>
+      <p style="margin-top:10px">The book's core teaching applies directly: you cannot solve this at the level it was created. The strategy and action you've already tried haven't worked because the frequency wasn't aligned. The work is always frequency first, then action.</p>
+    `;
+    document.getElementById('ps-sol-steps').innerHTML=`
+      <div class="ps-sol-steps-title">Your Core Protocol</div>
+      <div class="ps-sol-step-list">
+        <div class="ps-sol-step"><div class="ps-sol-step-n">1</div><div><strong>Name and locate the belief:</strong> "${belief}" — write this out fully and trace it to its earliest origin. When did you first decide this was true? (Ch 13)</div></div>
+        <div class="ps-sol-step"><div class="ps-sol-step-n">2</div><div><strong>Move to the Having Chair:</strong> Spend 10 minutes daily feeling what life is like with this problem already resolved. Not wishing — remembering it as already done. (Ch 6)</div></div>
+        <div class="ps-sol-step"><div class="ps-sol-step-n">3</div><div><strong>Body discharge:</strong> The block lives in the body, not just the mind. 3 minutes of shaking, vigorous movement, or breathwork to physically release stored low-frequency energy. (Ch 8)</div></div>
+        <div class="ps-sol-step"><div class="ps-sol-step-n">4</div><div><strong>21-night theta install:</strong> As you fall asleep each night, hold the feeling of the problem already resolved. Repeat for 21 consecutive nights — this is the minimum for a new subconscious default. (Ch 3)</div></div>
+        <div class="ps-sol-step"><div class="ps-sol-step-n">5</div><div><strong>One aligned action daily:</strong> From the elevated morning state, identify one action that feels genuinely inspired — not forced or fear-driven. Take only that action. (Ch 11)</div></div>
+      </div>
+    `;
+    document.getElementById('ps-sol-example').innerHTML=`
+      <div class="ps-sol-eg">
+        <span class="ps-sol-eg-label">✦ Principle in Action</span>
+        <p>Every person who has shifted a deeply stuck pattern in their life followed this sequence: frequency elevation first, then the belief work, then aligned action. Not the other way around. The action that arrives from an elevated frequency is qualitatively different from the same action taken in desperation. Trust the sequence.</p>
+      </div>
+    `;
+    document.getElementById('ps-sol-affirmation').innerHTML=`
+      <div class="ps-sol-affirm">
+        <span class="ps-sol-affirm-label">✦ Your Frequency Anchor Statement</span>
+        <div class="ps-sol-affirm-text">"I am shifting at the frequency level, not just the surface level. I am patient, consistent, and certain. My breakthrough is already real — I am simply aligning to meet it."</div>
+      </div>
+    `;
+  }
+  solEl.style.display='block';
+  solEl.style.animation='none';
+  solEl.offsetHeight;
+  solEl.style.animation='fadeUp .5s ease';
+  setTimeout(()=>solEl.scrollIntoView({behavior:'smooth',block:'start'}),100);
+}
+
+function resetPS(){
+  psState={area:null,problem:null,duration:null,belief:null,action:null};
+  ['ps-step2','ps-step3','ps-step4','ps-step5'].forEach(id=>{
+    const el=document.getElementById(id);
+    el.style.display='none';
+    el.querySelector('.ps-choices').innerHTML='';
+  });
+  document.getElementById('ps-solution').style.display='none';
+  document.querySelectorAll('#ps-area-choices .ps-choice').forEach(b=>b.classList.remove('selected'));
+  document.getElementById('ps-step1').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* Init */
+buildStars();
+buildBookTabs();
+buildChapters();
+buildQaGrid();
+buildFreqLevels();
+buildPS();
+buildFramework();
+buildScenarios();
+buildMaster();
+setTimeout(setupReveal,200);
+</script>
+</body>
+</html>
